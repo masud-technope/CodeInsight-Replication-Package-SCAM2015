@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+  <h2>Q: Trusting all certificates using HttpClient over HTTPS</h2>
+  <div>
+  D: Recently posted a question regarding the HttpClient over Https (found here). I've made some headway, but I've run into new issues. As with my last problem, I can't seem to find an example anywhere that works for me. 
+  	 Basically, I want my client to accept any certificate (because I'm only ever pointing to one server) but I keep getting a javax.net.ssl.SSLException: Not trusted server certificate exception.
+  </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #9</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="9" /> 
+   <hr /> 
+   <h4>File ID: #4837230-1-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="4837230-1-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">
+   public static HttpClient getNewHttpClient() {
+    try {
+	//here we can set a custom keystore if we need to
+        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+        trustStore.load(null, null);
+        SSLSocketFactory sf = new EasySSLSocketFactory(trustStore);
+        sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+        HttpParams params = new BasicHttpParams();
+        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+        SchemeRegistry registry = new SchemeRegistry();
+        registry.register(new Scheme(&quot;http&quot;, PlainSocketFactory.getSocketFactory(), Constants.EIGHTY));
+        registry.register(new Scheme(&quot;https&quot;, sf, Constants.FOUR_FOUR_THREE));
+        ClientConnectionManager ccm = new ThreadSafeClientConnManager(params, registry);
+        return new DefaultHttpClient(ccm, params);
+    } catch (Exception e) {
+        return new DefaultHttpClient();
+    }
+}// end of getNewHttpClient()
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>- Except that it's not guaranteed that you are talking to the server you think you are. If someone has mucked up a DNS server you could be communicating an encryption key with a hacker's server. </li>
+    <li>In other words you are now liable to man-in-the-middle attacks. You should also note that that code doesn't meet the specification: check the Javadoc. <code>`getAcceptedIssuers()`</code> is not allowed to return null. </li>
+    <li>This answer should probably note that trusting all certificates is horribly insecure and nullifies the entire purpose of ssl... </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

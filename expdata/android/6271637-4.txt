@@ -1,0 +1,6 @@
+public class SomeFragment implements XmlClickable {
+    ...onCreateView etc
+    @Override
+    public void myClickMethod(View v) {
+        switch (v.getid()) {
+            // Just like you were doing}}

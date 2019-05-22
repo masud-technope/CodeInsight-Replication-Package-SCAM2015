@@ -1,0 +1,6 @@
+// Broken code
+object[] args = null; // No array at all
+var test = string.Format("" {0}"", args);
+// Working code
+object[] args = new object[] { null }; // Array with 1 value
+var test = string.Format("" {0}"", args);

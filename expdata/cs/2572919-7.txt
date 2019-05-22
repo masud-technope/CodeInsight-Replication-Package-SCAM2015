@@ -1,0 +1,26 @@
+class QueueStore : Queue<T>, IItemStore
+{
+    public QueueStore(int capacity) : base(capacity)
+    {}
+    public T Fetch()
+    {
+        return Dequeue();
+    }
+    public void Store(T item)
+    {
+        Enqueue(item);
+    }
+}
+class StackStore : Stack<T>, IItemStore
+{
+    public StackStore(int capacity) : base(capacity)
+    {}
+    public T Fetch()
+    {
+        return Pop();
+    }
+    public void Store(T item)
+    {
+        Push(item);
+    }
+}

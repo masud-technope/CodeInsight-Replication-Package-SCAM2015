@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+  <h2>Q: Randomize a List<T> in C#</h2>
+  <div>
+  D: What is the best way to randomize the order of a generic list in C#? I've got a finite set of 75 numbers in a list I would like to assign a random order to, in order to draw them  for a lottery type application.
+  </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #4</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="4" /> 
+   <hr /> 
+   <h4>File ID: #1262619-3-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="1262619-3-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">
+   public static void Shuffle<T> ( this IList<T> list )
+{
+RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
+int n = list.Count;
+while (n > 1)
+{
+byte[] box = new byte[1];
+do provider.GetBytes(box);
+while (!(box[0] < n * (Byte.MaxValue / n)));
+int k = (box[0] % n);
+n--;
+T value = list[k];
+list[k] = list[n];
+list[n] = value;
+}
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>I would like to point out, that the comparison is flawed. Using <code>new Random()</code> in a loop is the problem, not the randomness of <code>Random</code> [Explanation](http://stackoverflow.com/questions/3053807/random-number-in-a-loop/3053811#3053811) </li>
+    <li>It is a good idea to pass an instance of Random to the Shuffle method rather than create it inside as if you are calling Shuffle lots of times in quick succession (e.g. shuffling lots of short lists), the lists will all be shuffled in the same way (e.g. first item always gets moved to position 3). </li>
+    <li>What if <code>list.Count</code> is &gt; <code>Byte.MaxValue</code>? If <code>n = 1000, then 255 / 1000 = 0,</code> so the do loop will be an infinite loop since box[0] &lt; 0 is always false. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

@@ -1,0 +1,14 @@
+static class IncomingHandler extends Handler {
+        private final WeakReference<UDPListenerService> mService;
+        IncomingHandler(UDPListenerService service) {
+            mService = new WeakReference<UDPListenerService>(service);
+        }
+        @Override
+        public void handleMessage(Message msg)
+        {
+            UDPListenerService service = mService.get();
+            if (service ! = null) {
+                service.handleMessage(msg);
+            }
+        }
+    }

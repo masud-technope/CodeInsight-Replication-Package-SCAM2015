@@ -1,0 +1,5 @@
+Patient maximumPatient = FindMaxPatient();
+MessageBox.Show(String.Format(""Maximum difference is: {
+    0
+}
+for patient {1} {2}"", maximumPatient.differenceAsString, maximumPatient.firstNameString, maximumPatient.lastNameString );

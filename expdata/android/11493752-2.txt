@@ -1,0 +1,7 @@
+Bundle b = new Bundle();
+b.putInt(DatePickerDialogFragment.YEAR, 2012);
+b.putInt(DatePickerDialogFragment.MONTH, 6);
+b.putInt(DatePickerDialogFragment.DATE, 17);
+DialogFragment picker = new DatePickerDialogFragment();
+picker.setArguments(b);
+picker.show(getActivity().getSupportFragmentManager(), ""frag_date_picker"");

@@ -1,0 +1,24 @@
+ViewPager pager = /* get my ViewPager */;
+// assume this actually has stuff in it
+final ArrayList<String> titles = new ArrayList<String>();
+FragmentManager fm = getSupportFragmentManager();
+pager.setAdapter(new FragmentStatePagerAdapter(fm) {
+    public int getCount() {
+        return titles.size();
+    }
+    public Fragment getItem(int position) {
+        MyFragment fragment = new MyFragment();
+        fragment.setTitle(titles.get(position));
+        return fragment;
+    }
+    public int getItemPosition(Object item) {
+        MyFragment fragment = (MyFragment)item;
+        String title = fragment.getTitle();
+        int position = titles.indexOf(title);
+        if (position > = 0) {
+            return position;
+        } else {
+            return POSITION_NONE;
+        }
+    }
+});

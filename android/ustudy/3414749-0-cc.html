@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Get filename and path from uri from mediastore</h2>
+ <div>
+ D: I have an onActivityResult returning from an mediastore image selection which I can get a URI for an image using the following:
+<br />
+<code>
+  Uri selectedImage = data.getData();
+</code>
+<br />
+Converting this to a string gives this:
+<br />
+<code>
+  content://media/external/images/media/47
+</code>
+<br />
+Or to a path gives:
+<br />
+<code>
+  /external/images/media/47
+</code>
+<br />
+However I can't seem to find a way to convert this into an absolute path, as I want to load the image into a bitmap without having to copy it somewhere. I know this can be done using the URI and content resolver but this seems to break on rebooting of the phone, I guess MediaStore doesn't keep its numbering the same between reboots.
+
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #13</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="13" /> 
+   <hr /> 
+   <h4>File ID: #3414749-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="3414749-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public static String getRealPathFromUri(final Context context, final Uri contentUri) {
+    Cursor cursor = null;
+    try {
+        final String[] proj = {MediaStore.Images.Media.DATA};
+        cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    } finally {
+        if (cursor ! = null) {
+            cursor.close();
+        }
+    }
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>Instead of <code>managedQuery(.........)</code> (deprecated) you can use <code>getContentResolver().query(.....)</code> with the same parameters. Nice work </li>
+    <li>As Christopher points out - this is not supported in 4.4+ See this question for more info: http://stackoverflow.com/questions/20067508/get-real-path-from-uri-android-kitkat-new-storage-access-framework/20402190?noredirect=1#comment30507493_20402190 </li>
+    <li>In the newest Android version (KitKat) this gives an error: the path String is null. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

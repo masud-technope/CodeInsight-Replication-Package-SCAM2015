@@ -1,0 +1,29 @@
+public class HomeActivity extends Activity implements MyResultReceiver.Receiver {
+    public MyResultReceiver mReceiver;
+    public void onCreate(Bundle savedInstanceState) {
+        mReceiver = new MyResultReceiver(new Handler());
+        mReceiver.setReceiver(this);
+        ...
+        final Intent intent = new Intent(Intent.ACTION_SYNC, null, this, QueryService.class);
+        intent.putExtra(""receiver"", mReceiver);
+        intent.putExtra(""command"", ""query"");
+        startService(intent);
+    }
+    public void onPause() {
+        mReceiver.setReceiver(null); // clear receiver so no leaks.
+    }
+    public void onReceiveResult(int resultCode, Bundle resultData) {
+        switch (resultCode) {
+        case RUNNING:
+            //show progress
+            break;
+        case FINISHED:
+            List results = resultData.getParcelableList(""results"");
+            // do something interesting
+            // hide progress
+            break;
+        case ERROR:
+            // handle the error;
+            break;
+        }
+    }

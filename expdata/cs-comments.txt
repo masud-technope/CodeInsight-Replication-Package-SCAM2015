@@ -1,0 +1,540 @@
+CommentID	Class	PostID	Score	 Comment Text
+=============== ======  ======  =====    =============================================================================
+
+15709225	C3	32336	11	 I was having a hard time getting this working even with trying various tweaks. As suggested on a related post, I found that it was actually my antivirus that was preventing emails from being successfully sent. The antivirus in question is McAffee, and its "Access Protection" has a "Antivirus Standard Protection" category that has a "Prevent mass mailing worms from sending email" rule. Tweaking / disabling that rule got this code working for me!
+
+2668632	C3	2652481	31	 Bear in mind the JIT is free to inline methods, which might throw this off. To force a method to not be inlined, add the [MethodImpl(MethodImplOptions.NoInlining)] attribute.
+
+24769657	C7	8911646	16	 The best part in SO is that people like Raymond Chen and @EricLippert participate.. No words!
+
+17838428	C5	10380166	7	 I just need bytes for my crypto to work, i think you answer still rocks!
+
+1749468	C6	1705604	120	 That last Console.WriteLine made me laugh real hard. I think you should throw a `CommonlyAcceptedCosmologicTheoriesWrongException` instead.
+
+14732224	C2	82473	9	 Looking at getters and setters as methods, I don't see why it should be a "breach of contract" any more than adding a new method. A base-class contract has nothing to do with what functionality is *not* present, only with what *is* present.
+
+149203	C5	233505	67	 "Best damn piece of code I have seen :) Just solved a million problems in my project :)"
+
+4370385	C2	4057391	16	 For the sake of completness, let's add that the above piece of code must be wrapped in a method that is adorned with an async keyword. This method shall immediately return as soon as the first await keyword is encountered therein.
+
+39600990	C2	25390969	13	 The tendency towards 84 (mod 200) is only if you chain `System.Random` in this very specific way. Not for any seed to produce 84 (mod 200) on the third value.
+
+2646610	C7	2633016	177	 I'm pretty sure this summons a velociraptor.
+
+13335897	C3	212707	15	 You should not use the IV like this. For a given two messages, they should not have been encrypted with the same Key and same IV. The IV should be random for each message, prepended to the cryptostream, and read out before decryption. http://crypto.stackexchange.com/a/82/1934
+
+21172343	C4	10380166	13	 -1 for the answer. +1 for David's and artbristol's comments above. Of course there is an in-memory representation of strings in .NET. It happens to be little endian UTF-16. When you get the byte array, you are getting them in *that* encoding. If all you *
+
+1895055	C2	151560	10	 This is imho a much better reason to put using statements locally than Mark's multiple-namespaces-in-one-file argument. Especially sine the compile can and will complain about the naming clash (see the StyleCop documentation for this rule (e.g. as posted by Jared)).
+
+270848	C7	371348	12	 Can I ask ahy are you multiplying with such factors?
+
+5687297	C5	32336	6	 Nice Coding Standards. Working fine.
+
+11147112	C7	8911646	12	 You're just teasing the rest of us with your exercise, aren't you ;)
+
+4985785	C2	2640011	6	 @Jon Skeet: I'm not sure if I agree that contracts don't need testing. More specifically, it's not the contract that is being tested, but rather the behavior that the method will throw when a contract is violated. Let's say the specification for a method
+
+737027	C2	926806	55	 What I care about is not the behaviour; either behaviour seems justifiable. What I care about is that its not _specified_, which means it cannot easily be tested. In this case, we're defining our own operator, so we can specify whatever behaviour we like. i don't care whether that behaviour is "throw" or "don't throw", but I do care that it be stated.
+
+4991075	C1	2640011	11	 @Jason: Do you also test that the method can't be called with the wrong argument types, too? I mean surely the method signature is part of the specification, too... so do you have a unit test which uses reflection to try to call a method taking a string,
+
+2153580	C5	1705604	14	 Code that makes me laugh - in a good way! +1
+
+9623990	C7	7877736	14	 @Eric: If/when you ever stop loving coding, you should consider going for teaching programmers. Beside the fun, you could be making a killing without the pressures of business. Awesome flair is what you got in that area (and wonderful patience, I might ad
+
+7643758	C3	6498692	12	 A GUID is not a random number and if you substring it is not necessarily even going to be unique
+
+9499498	C7	4671668	14	 I don't know about you, but I read the one without formatting better. Especially when I want to know what goes where, I have to go back and forth between the text and the params, and that's not even counting the possibility of miscounting and getting it wrong (that may not be an issue with fewer parameters, but go over 10 and it stops being fun). As Ashley pointed out, the second point is null if you use the formatting built in the ToString method. I agree with the third one, but I don't think I'll ever use it outside of that particular case.
+
+9306643	C6	619859	9	 @Gravitas: Useful or not, it's certainly not available today. I suspect if this feature were ever to show up, it would require rather more careful design than we can do in comments :)
+
+2838190	C7	154803	15	 Thanx much! Your footnote on "What volatile is actually good for" is what I was looking for and confirmed how I want to use volatile.
+
+1884177	C3	1970001	15	 it's not always a question of whether or not "you can easily return an empty array", but rather of whether or not an empty array might be misleading in the current context. An empty array actually means something, as does null. To say that you should always return an empty array rather than null, is almost as misguided as saying you a boolean method should always return true. Both possible values convey a meaning.
+
+16509961	C4	151560	7	 I think this is more of a bad naming convention rather than changing the place of your using. There shouldn't be a class called Math in your solution
+
+8500934	C4	5325861	6	 @Cargowire - I agree, that scenario exists, and it is frustrating when you know what you are doing but are not allowed to do it due to limitations. However, had this been allowed, there would be lots of frustrated developers complaining about their data g
+
+3576109	C7	619859	17	 Yeah but what's wrong with that, there's no suitable Bar constructor because it doesn't satisfy the interface properly. That'd be like saying you can't define methods in interfaces because if you don't implement it, it won't work.
+
+633114	C3	136092	546	 throw ex is one if those really common mistakes. As a rule of thumb: You NEVER want to throw ex, since that generates a new exception, with an empty call stack. throw simply throws the existing exception higher.
+
+21311495	C7	15117741	15	 @MarkHurd: I think you're not getting the full impact of what I'm saying here. It's not a question of what the C# compiler or the VB compiler does. The C# compiler is permitted to give *either answer* to that question *at any time for any reason*. You can
+
+333159	C6	174223	13	 It's all good, Erik. The only reason /I/ knew about it is that I'm compiler theory nerd who read the ECMA-334 specs with a magnifying glass.
+
+10922853	C6	8763548	25	 +1 for generating a surprisingly coherent error message.
+
+10918	C7	82473	45	 I am still not convinced. Even if there is no explicit setter, this doesn't guarantee that the property will always return the same object - it can still be changed by some other method.
+
+36907987	C2	23949829	11	 Note that due to brain-damaged semantics of the modulo operation, this can give a result that is off by one, namely rounded up rather than down, if negative values for the variables are allowed. For instance if x,y are positive multiples of 3, and z is -2, you get `(x+y)/3` which is too much.
+
+13590273	C6	136092	12	 The else is kind of redundant.
+
+32057093	C7	21273904	18	 I love the short answer.
+
+688606	C7	881489	34	 @Eoin: If its not instantiated it'd be rather difficult to log it.
+
+328211	C6	174223	31	 Damn - I've been programming with C# since the early days of 1.0, and I've *never* seen this until now. Just goes to show, you learn new things every day.
+
+11061599	C2	8853974	28	 Good answer, though I note that it is not quite accurate to say "exactly identical" in your first example. It is exactly identical to `List<int> temp = new List<int>(); temp.Add(1); ... List<int> a = temp;` That is, the `a` variable is not initialized until *after* all the adds are called. Otherwise it would be legal to do something like `List<int> a = new List<int>() { a.Count, a.Count, a.Count };` which is a crazy thing to do.
+
+1884217	C7	1970001	9	 For example, an UI component (from a library out of your control), might be rendering an empty table if an empty collection is passed, or no table at all, if null is passed
+
+13339555	C4	212707	6	 Using a random IV for each message is not exotic or new, just important and part of the design of the algorithm. Using a predictable IV for every message is a common crypto mistake that doesn't need to be perpetuated.
+
+2312303	C2	424414	19	 @Ant: I don't have to. Since we have only one instance of each AuthenticationMethod the reference equality inherited from Object works fine.
+
+21274649	C7	15117741	9	 When _Eric Lippert_ answered the same question with me, I always feel `damn! my answer doesn't look logical anymore..`
+
+5175483	C4	4691582	10	 @Power-Mosfet: Because it swallows *all* exceptions *silently*: you can't tell when *anything's* gone wrong. a) it's almost always a bad idea to handle all exceptions uniformly; b) it's almost always a bad idea to swallow exceptions, taking no action (not
+
+19872341	C7	14301496	6	 @GoloRoden, why are you calling the interface ICanLog instead of ILogger? I worked with another programmer who often did this, and I could never understand the convention? To me it is like calling IEnumerable ICanEnumerate?
+
+14459412	C6	10380166	13	 Well, the way I think about it is: I'm not a judge. I don't ask for "evidence" from the OP to try to prove his case before I answer him (contrary to what others might try to do). He *clearly* said, "Can't I simply get what bytes the string has been stored in? Why this dependency on encoding?", to which my answer is 100% accurate, more than the others on this page IMO. And IMO he's understood the caveats by now. Also, the fact that the answer was from 3 years ago is irrelevant. But again, if you'd rather ask for "evidence" first, then that's your style, and feel free to keep the downvote..
+
+110059	C7	31929	61	 holy detailed answer batman! :)
+
+16949161	C5	469315	7	 Wow... It's almost unbelieveable to see something implemented in a more verbose way in C# than in Java
+
+25752459	C1	17673433	47	 Is this really considered cleaner?
+
+34312325	C6	22544510	83	 The idea on SO is that you are learning something, not just copy pasting the code. The code could be viewed later by others and help them as well, so deleting it doesn't seem fair to them. You should be able to modify my code enough to make it "your own", and I would be happy to answer any questions you have in that process. Also, all the code on SO is effectively public domain, so there is no copyright issues to worry about (if that is your concern).
+
+3303390	C5	926806	15	 I think this is one of the best answers on the entire of SO.
+
+2576784	C7	82473	23	 I disagree: the base class only declared the property as having no setter; that is not the same as the property being read-only. "Read-only" is only a meaning *you* assign to it. There are no relevant guarantees built into C# at all. You could have a get-only property that changes every time, or a get/set property where the setter throws an `InvalidOperationException("This instance is read-only")`.
+
+2639084	C6	2187498	22	 @Anthony: When I do that I just tell people that my degree is in *mathematics*, not *arithmetic*.
+
+7815995	C5	136092	9	 The latest version of FxCop does not throw an exception when the code above is used.
+
+22731359	C3	1122519	13	 Also, you can get a random uppercase letter by using `ch = (char)random.Next('A','Z');` a lot simpler than the unreadable line `ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));` from the original post. Then if you want to switch it to lowercase, you can easily switch to `(char)random.Next('a','z');`
+
+20513341	C2	6323032	19	 "Thank you, just to clarify for fellow newbies to C# and MVC 3, here is what I had to do: create Helpers folder on root, create a class, MenuExtensions.cs, with the above code in this folder. To the top of the file add `using System.Web.Mvc;` `using System.Web.Mvc.Html;` In Web.config in the Views folder, add `<add namespace=""yourNamespacehere.Helpers"" />` inside the namespaces tag."
+
+11148053	C7	8911646	33	 Raymond's answer here is of course completely correct. I note that the C# compiler and the jit compiler are both allowed to use more precision *at any time*, and to do so *inconsistently*. And in fact, they do just that. This question has come up dozens of times on StackOverflow; see http://stackoverflow.com/questions/8795550/casting-result-to-float-in-method-returning-float-changes-result/8795656#8795656 for a recent example.
+
+16852882	C2	12466884	14	 Note that if you're prepending a lot (as you're essentially doing in the last example) or deleting the first entry, a linked list will nearly always be significantly faster, as there is no searching or moving/copying to do. A List would require moving everything up a spot to accommodate the new item, making prepending an O(N) operation.
+
+146700	C4	299273	7	 Thread.Abort() is very dangerous to use, It shouldn't be used with regular code, only code that is guaranteed to be safe should be aborted, such as code that is Cer.Safe, uses constrained execution regions and safe handles. It shouldn't be done for any code.
+
+4389559	C4	1248	6	 Beware of editing the times here since ts.Minutes, ts.Hours, etc... gives the component of the timespan, not the total minutes or hours. For example if you wanted to describe everything less than 48 hours in terms of hours, you'd need to change ts.Hours to Convert.ToInt32(ts.TotalHours) to get output of "38 hours ago". I wanted to do this since my application predicts a future time like "38 hours left". Tomorrow doesn't sound good here IMO.
+
+39603039	C6	25390969	13	 Finally I learned how to print out those nicely looking tables
+
+5175378	C4	4691582	7	 Why just give corrected code without explanation? What will anyone learn from this? The empty catch block is a really bad thing to do - either remove it all together or ensure you do something with any exceptions caught.
+
+16728865	C4	2138588	6	 @Brettski Technically, yes, but having a _**unique**_ salt for each user renders Rainbow Tables (generally accepted as the most efficient way to crack hashed passwords) practically useless. [This is a quick oveview](http://crackstation.net/hashing-securit
+
+5199311	C2	4671668	7	 For your 'substr' example you should actually use _invoiceNum.ToString("00000"). ToString supports the same composite formatting settings as string.Format() When you have just a single value to be formatted ToString() is often simpler/clearer than Format().
+
+6775415	C5	182924	6	 +1 Yes, thanks saved me the headache of figuring it out.
+
+698127	C4	889642	12	 Sorry, you're still going to leave valid names out in the cold. I strongly suggest you read up on diacritics in Arabic, especially those are separate Unicode characters but which combine with letters to change them. Will you be disallowing things like "John W. Saunders, 3rd"? I hope not. It's just a much wider world out there than you seem to realize, and your simplistic, Western-oriented rules will simply not work in general.
+
+1140523	C2	1308480	13	 This is a debug build. The JIT doesn't optimize those.
+
+1278611	C5	1431789	14	 +1 for the cool name
+
+9213569	C5	7595443	7	 +1 for doublechecking and using LINQPad ;)
+
+2861505	C7	2819962	33	 How does referencing the property that contains these version numbers and stating what the appropriate combinations map to *not* answer the question? You don't always have to give code to answer a problem.
+
+28990372	C5	10380166	10	 @LeonLucardie: The other alternatives aren't "better"; *in fact, they're **worse*** because they break on strings that can't be encoded correctly (such as those that contain unpaired surrogates). I've mentioned this a million times now, but apparently it'
+
+1724559	C2	212707	47	 @AndyMcKenna - That's done on purpose so that you change the values in the arrays, as Mark notes in the second paragraph.
+
+5148688	C7	4671668	49	 +1 for the `Someone just shoot the developer.` ;-)
+
+4447877	C6	174223	53	 Wow... I just used a `goto` in my code. Should I feel dirty?
+
+15082559	C4	10380166	70	 This answer is wrong on so many levels but foremost because of its decleration "you DON'T need to worry about encoding!". The 2 methods, GetBytes and GetString are superfluous in as much as they are merely re-implementations of what Encoding.Unicode.GetBytes() and Encoding.Unicode.GetString() already do. The statement "As long as your program (or other programs) don't try to interpret the bytes" is also fundamentally flawed as implicitly they mean the bytes should be interpreted as Unicode.
+
+1927128	C6	151560	7	 Excellent and concise explaination. This should really be marked as the answer.
+
+104459	C5	194671	29	 Very, very cool. In an uncool kind of way. ;-)
+
+8242377	C7	6919149	54	 "**you do not have to return bool**" .. I think that's our answer right there; well done. If !(o1 == o2) isn't even well-defined, then you can't expect the standard to rely on it.
+
+2303155	C4	424414	10	 It looks like an enum but it isn't an enum. I can imagine that causing some interesting problems if people start trying to compare AuthenticationMethods. You probably need to overload various equality operators too.
+
+17336449	C4	5342460	10	 Whether it is working or not using try catch to validate input is not recommended practice. Regex is definitely better way to go.
+
+7491667	C6	1248	11	 `const int SECOND = 1;` So weird a second is one second.
+
+6856978	C3	5942176	26	 @Bongo Sharp: Don't forget to set `AutoDetectChangesEnabled = false;` on the DbContext. It also has a big additional performance effect: http://stackoverflow.com/questions/5943394/why-is-inserting-entities-in-ef-4-1-so-slow-compared-to-objectcontext/59436
+
+8256321	C4	3913489	40	 -1 It's really bad to create ugly code just to comply with a warning that [should be suppressed](http://stackoverflow.com/questions/3831676/ca2202-how-to-solve-this-case/3839419#3839419).
+
+1884159	C3	1970001	12	 I agree with Will, but i think that "always" is a little excessive. While an empty collection might mean "0 items", returning Null could mean "no collection at all" - eg. if you are parsing HTML, looking for an <ul> with id="foo", <ul id="foo"></ul> could return empty collection; if there is no <ul> with id="foo" a null return would be better (unless you want to handle this case with an exception)
+
+18610	C7	82473	11	 Shouldn't the same be true for interfaces, then? You can have readonly property on interface and read/write on implementing type.
+
+36911161	C6	23949829	6	 @KevinZ: ...whose effect then has to be undone by a programmer who never wanted that special-case behavior in the first place. Letting the programmer specify modulus rather than having to derive it from a remainder which the compiler may have derived fro
+
+1884152	C6	1970001	39	 while you are generally correct, there are cases when returning null isn't wrong. so the "always" should be omitted.
+
+19869671	C7	14301496	31	 Here is the thing I never get about DI: it makes the architecture **vastly** more complicated. And yet, as I see it, the use is pretty limited. The examples are certainly always the same: interchangeable loggers, interchangeable model / data access. Sometimes interchangeable view. But that’s it. Do these few cases really justify a vastly more complex software architecture? – Full disclosure: I’ve already used DI to great effect, but that was for a very special plug-in architecture that I wouldn’t generalise from.
+
+4194147	C2	424414	7	 @tyriker: Compiler does. The constructor is private so you cannot create new instance. Also static members are not accessible through instance.
+
+2040076	C3	2047657	12	 I think that the facades should be hand-coded because they represent known (and presumably common) combinations of components. A DI Container should not be necessary because everything can be wired up by hand (think Poor Man's DI). Recall that a Facade is just an optional convenience class for users of your API. Advanced users may still want to bypass the Facade and wire up the components to their own liking. They may want to use their own DI Contaier for this, so I think it would be unkind to force a particular DI Container upon them if they are not going to use it. Possible but not advisable
+
+1975636	C3	2047657	11	 While this sounds great on paper, in my experience once you have lots of inner components interacting in complex ways, you end up with lots of factories to manage, making maintenance harder. Plus, factories will have to manage their created components' lifestyles, once you install the library in a real container this will conflict with the container's own lifestyle management. Factories and facades get in the way of the real containers.
+
+13610269	C7	371348	8	 "Oh - for convenience, you might also consider providing == and != operators when overriding Equals and GethashCode.": Microsoft discourages implementing operator== for objects that are not immutable - http://msdn.microsoft.com/en-us/library/ms173147.aspx - " It is not a good idea to override operator == in non-immutable types."
+
+2637972	C6	2187498	14	 @Bruno: All it takes is about eight or ten thousand hours of study of a given subject and you too can be an expert on it. That's easily doable in four years of full-time work.
+
+101741	C2	194671	10	 @Drew; additionally, there are special boxing rules for Nullable<T>, which means that an empty Nullable<T> boxes to null, not a box that contains an empty Nullable<T> (and a null un-boxes to an empty Nullable<T>)
+
+8050068	C1	5325861	39	 I don't understand why I should not be able to do this... This would be very usefull...
+
+147305	C2	299273	11	 While Thread.Abort() is bad, it is no where near as bad as a process running out of control and using every CPU cycle & byte of memory that the PC has. But you are right to point out the potential problems to anyone else who may think this code is useful.
+
+24161546	C6	16769877	14	 @3D-kreativ: Yes, but I'd still recommend using the "extract to method" approach.
+
+164341	C6	324837	24	 In this type of situation I don't think using goto is any worse than the normal use of something like break (after all they're both just unconditional branches to a label, it's just that with break the label is implicit).
+
+2646659	C7	2633016	18	 It's actually a secret incantation that grants superhero C# abilities to the person that says it. Unfortunately, it works only once and Jon's already use it.
+
+4200741	C5	424414	8	 @Jakub Very interesting. I had to play with it to figure out how to use it, and realize its benefits. It's a public, non-static class, but can't be instantiated and you can only access its static members. Basically, it behaves like an enum. But the best p
+
+2646669	C6	2633016	8	 1 tweet and it gets 30 upvotes within 5 minutes. Nice.
+
+25152339	C7	17331230	11	 Note that x86 is only slower when using _ternary_ -- it is as equally fast as x64 when using _if/else_. So the question to answer is: "why is the X86 code so much slower than X64 when using the ternary operator?".
+
+5452930	C5	2603625	26	 It seems that ExcelLibrary only supports .xls and EPPlus only .xlsx so they complement each other.
+
+9219903	C5	7595443	27	 @Blindy "The interviewer disagreed and said *if using is wrapped in a try catch block then Dispose will not be called by the time you enter the catch block.*" I think the answer is a pretty good counterexample to the interviewer's "theory".
+
+39600569	C4	25390969	15	 Cryptographic or not, having the third output be constant sounds like a pretty bad flaw. Yikes.
+
+5546126	C6	898867	51	 @erikkallen is that a joke? :)
+
+2571081	C6	538238	25	 @Daniel Earwicker: It's true. Microsoft would love for you to stop using Win32 altogether, and stick to nicely abstractable, portable, device independent .NET Framework calls. If you want to go poking around the operating system underneath; because you **
+
+1066803	C5	182924	34	 This code works well. It assumes Column A is columnNumber 1. I had to make a quick change to account for my system using Column A as columnNumber 0. I changed the line int dividend to int dividend = columnNumber + 1; Keith
+
+2103214	C4	937558	37	 This is a great solution, but I have one comment - you may wan't to open the File with access mode FileAccess.Read since ReadWrite will always fail if the file happens to be read-only.
+
+676841	C4	299273	20	 I can't believe this is the accepted answer, someone must not be reading the comments here, or the answer was accepted before the comments and that person does not check his replies page. Thread.Abort is not a solution, it's just another problem you need to solve!
+
+24707624	C6	10380166	13	 You do *not* understan why people worry about encodings because you do *not* actually understand what encodings are.
+
+35675024	C6	22544510	9	 @BradleyDotNET: There definitely are copyright issues. The license SO uses requires credit to be given for any content used from SO. As the author, you can of course make your code usable under more generous terms, but by default the only license for us
+
+3764067	C2	136092	14	 Unfortunately, FxCop (ie - Visual Studio Code Analysis) doesn't like it when you catch Exception.
+
+101208	C2	194671	69	 Drew: the problem is that GetType() isn't virtual, so it's not overridden - which means that the value is boxed for the method call. The box becomes a null reference, hence the NRE.
+
+2646691	C6	2633016	7	 @Coronatus: Yes, I think it's time to make it CW just so it doesn't look like a rep grab attempt.
+
+9217448	C4	1262619	12	 I would like to point out, that the comparison is flawed. Using <code>new Random()</code> in a loop is the problem, not the randomness of <code>Random</code> [Explanation](http://stackoverflow.com/questions/3053807/random-number-in-a-loop/3053811#3053811)
+
+9620507	C6	7883083	11	 For added entertainment, have a static stub method `Off` in a class named as the four-letter word of your choice, and use this for your catch-all continuations. Helps to combat some of the pent-up frustration from this particular exception.
+
+2646703	C2	2633016	6	 this is _required_ way to use delegates when using classes in the System.Net.MorseCode namespace.
+
+11594836	C1	538238	22	 This is a great answer but I think it would however benefit from a final code listing for a standard case and for a case where the the class derives from a baseclass that already implements Dispose. e.g having read here (http://msdn.microsoft.com/en-us/library/aa720161%28v=vs.71%29.aspx) as well I have got confused about what I should do when deriving from the class that already implements Dispose (hey I'm new to this).
+
+19865942	C7	14301496	19	 excellent explanation, don't even have a clue who could -1 it.
+
+4251391	C5	926806	21	 This shakes me at my core - Jon Skeet..wrong? In any case, good answer.
+
+3662891	C4	1248	133	 I hate such constants with a passion. Does this look wrong to anyone? `Thread.Sleep(1 * MINUTE)`? Because it's wrong by a factor of 1000.
+
+2339517	C3	2363851	18	 Good answer (+1). My only suggestion would be to implement IChangeTracking (http://msdn.microsoft.com/en-us/library/system.componentmodel.ichangetracking.aspx) rather than creating your own IsDirty property.
+
+15089119	C6	10380166	7	 @David: Yes, it crashes on UTF-8 data, because `GetBytes` never happens to return UTF-8 data. It seems like the abstraction layer you're expecting is different from the one that's actually there. If you're not sure how to use it correctly then don't; the
+
+2099835	C2	78612	56	 Serialization/deserialization involves significant overhead that isn't necessary. See the ICloneable interface and .MemberWise() clone methods in C#.
+
+20139691	C2	14459153	11	 "For completeness, this is given in a note in ECMA-335 I.8.2.5.2 ""Equality is implemented on System.Object via the Equals method. [Note: Although two floating point NaNs are defined by IEC 60559:1989 to always compare as unequal, the contract for System.Object.Equals requires that overrides must satisfy the requirements for an equivalence operator. Therefore, System.Double.Equals and System.Single.Equals return True when comparing two NaNs, while the equality operator returns False in that case, as required by the IEC standard. end note]"""
+
+24026546	C2	16694227	21	 @rtuner `const` statements are not executed at runtime, they are substituted at compile time. Try and put a break point on it.
+
+23934043	C2	16621778	9	 @sleske If you're going to nitpick, 21 bits could encode 32 planes of 16 bits. 20 bits would be 16 planes of 16 bits. In an information theoretic sense, there are fewer than 21 bits necessary to encode a single Unicode character. The decimal representatio
+
+13502127	C1	151560	6	 Great answer, but it seems to me that I'd only want to put non-framework using statements locally, and keep the framework using statements global. Anyone have further explanation why I should completely changed my preference? Also where did this come from, the templates in VS2008 put using outside the namespace?
+
+8248159	C7	6919149	8	 Ironically in a topic about logical operators you have used a double-negative in the sentence, "C# does not allow you to not override only one of either" which actually logically means "C# does allow you to override only one of either".
+
+23899390	C2	16621778	84	 Here is a more complete list of digits that aren't 0-9: http://www.fileformat.info/info/unicode/category/Nd/list.htm
+
+24825712	C6	17150843	11	 Actually, little known fact: dapper will iterate *for you*; the middle one can be: `connection.Execute("INSERT INTO PROCESS_LOGS VALUES (@A, @B)", processList);`
+
+2966182	C4	937558	125	 -1. This is a poor answer, because the file could become locked by another thread/process after it is closed in IsFileLocked, and before your thread gets a chance to open it.
+
+14912414	C2	937558	7	 I think this is a great answer. I'm using this as an [extension method](http://msdn.microsoft.com/en-us/library/bb383977.aspx) á la `public static bool IsLocked(this FileInfo file) {/*...*/}`.
+
+20706540	C6	14787852	11	 now **that's** an answer :)
+
+1632316	C4	32336	32	 Interesting note: If you swap 'UseDefaultCredentials = false,' and 'Credentials = ...' it won't authenticate.
+
+4157659	C3	2138588	15	 "nifty LINQ statement refactor for CompareByteArrays `return array1.Length == array2.Length && !array1.Where((t, i) => t != array2[i]).Any();`"
+
+504995	C6	487757	21	 What a great answer and a tremendous help! I made SuspendDrawing and ResumeDrawing extension methods for the Control class, so I can call them for any control in any context.
+
+24029338	C6	16694227	22	 To address your last paragraph: indeed, Mono appears to be in the wrong here. But one can hardly blame them; this is a bizarre scenario. I wonder if Mono gets other rules about scoping inside switch statements wrong? I shall find out!
+
+554436	C5	212707	6	 +1 This should of been the accepted answer. Awesome answer..Thanks!!!
+
+11090687	C7	8870593	10	 @Blue - I don't know, short from making fun of Intel engineers. My high school book does have a problem raising something to the power of a negative integral. Pow(x, -2) is perfectly computable, Pow(x, -2.1) is undefined. Domain problems are a bitch to
+
+95412	C1	194671	9	 Why can't Nullable<T>.GetType() be defined? Shouldn't the result be typeof(Nullable<T>)?
+
+11094308	C7	8870593	7	 @Hans Passant: Why would Pow(x,-2.1) be undefined? Mathematically pow is defined everywhere for all x and y. You do tend to get complex numbers for negative x and non integer y.
+
+9613067	C7	7877736	46	 WOW. That is just EXACTLY what I was looking for. Best way to get an answer is to get one from the principal developer himself. Thanks for the time, and I'm sure this will help everyone who wonders the intricacies of the compiler and MSIL. Thanks Eric.
+
+412973	C7	600306	12	 @ShuggyCoUk: two's complement is how negative numbers are represented. Since this is an unsigned integer, representation of negative numbers is not relevant. This technique only relies on binary representation of nonnegative integers.
+
+11545177	C5	7608823	14	 Best example I've seen that redirects both input and error, and uses a timeout period. Also, nice to see someone adding to a question three years after it was asked.
+
+164357	C5	324837	13	 sometimes goto is less evil than the alternatives
+
+14458562	C6	10380166	133	 @artbristol: If they can't be bothered to read the answer (or the other answers...), then I'm sorry, then there's no better way for me to communicate with them. I generally opt for answering the OP rather than trying to guess what others might do with my
+
+12931125	C6	10095362	9	 Hence contrived, but introducing a new local scope isn't that unusual, imho.
+
+7307937	C4	1262619	7	 What if list.Count is > Byte.MaxValue? If n = 1000, then 255 / 1000 = 0, so the do loop will be an infinite loop since box[0] < 0 is always false.
+
+9615973	C7	7877736	24	 @JanCarloViray: You are very welcome! I note that I am *a* Principal Developer, not *the* principal developer. There are several people on this team with that job title and I am not even the most senior of them.
+
+2102907	C5	78612	10	 @David, granted, but if the objects are light, and the performance hit when using it is not too high for your requirements, then it is a useful tip. I haven't used it intensively with large amounts of data in a loop, I admit, but I have never seen a singl
+
+325094	C6	78612	12	 http://stackoverflow.com/questions/78536/cloning-objects-in-c/78551#78551 has a link to the code above [and references two other such implementations, one of which is more appropriate in my context]
+
+4403140	C2	2603625	119	 ExcelLibrary has been superseded by the exceptional EPPlus - http://epplus.codeplex.com. Jan updates it regularly. Have been using it and it is one of the finest open source projects we've worked with.
+
+11569951	C6	2603625	6	 EPPlus is now LGPL, so that last concern should no longer apply
+
+7815324	C7	154803	25	 @Zach Saw: Under the memory model for C++, volatile is how you've described it (basically useful for device-mapped memory and not a lot else). Under the memory model for the *CLR* (this question is tagged C#) is that volatile will insert memory barriers a
+
+24026745	C6	16694227	14	 @Magnus Why are you allowed to put code after a `return;` and before the end of that scope? It's code that won't run. The answer is simply because they didn't bother to make it illegal; making it illegal was more work than just leaving it, and leaving i
+
+4868552	C2	4456450	14	 Side note: It doesn't always *have* to be an actual interface in the sense the language you are using uses the word. It could as well be an abstract class which is not entirely unreasonable, given the restrictions Java or C# place on inheritance.
+
+8833226	C1	7325171	27	 Alternatively, you can show that your four cases are reduced to two cases by considering the *opposite*. Turn the question from "how many ways are there to overlap?" to "how many ways are there to NOT overlap?" There are only two. Either the second date range starts *after* the first one ends, or the first date range starts *after* the second one ends. If neither of those two cases are true, then they overlap. You don't need to consider the four ways that they overlap if you just consider the two ways that they do not.
+
+7257346	C2	78612	9	 @Amir: actually, no: `typeof(T).IsSerializable` is also true if the type has been marked with the `[Serializable]` attribute. It doesn't have to implement the `ISerializable` interface.
+
+25744608	C6	17673433	44	 +1 And somebody said my answer was over the top...
+
+16833027	C3	12466884	47	 There is one benefit to LinkedList over List (this is .net specific): since the List is backed by an internal array, it is allocated in one contiguous block. If that allocated block exceeds 85000 bytes in size, it will be allocated on the Large Object Heap, a non-compactable generation. Depending on the size, this can lead to heap fragmentation, a mild form of memory leak.
+
+25754681	C6	17673433	7	 @ClassicThunder Cleaner for the consumer, for certain.
+
+19874837	C7	14301496	6	 @David Unit testing works just fine – after all, a *unit* is independent of other things (otherwise it’s not a unit). What *doesn’t* work without DI containers is mock testing. Fair enough, I am unconvinced that the benefit of mocking outweighs the
+
+21493431	C2	12005272	9	 "M$, when somefile.min.js is explicitely specified, or when just the .min.js file exists, then only include the .min.js file! Otherwise just apply the current behavior!"
+
+2392703	C2	311179	59	 Because a byte is two nibbles, any hex string that validly represents a byte array must have an even character count. A 0 should not be added anywhere - to add one would be making an assumption about invalid data that is potentially dangerous. If anything, the StringToByteArray method should throw a FormatException if the hex string contains an odd number of characters.
+
+2135885	C7	2187498	8	 @Jason: I believe the spec violations in the first two cases are simply errors that were never caught. The initial binding pass historically has been very aggressive about prematurely optimizing expressions, and one of the consequences of that is that par
+
+3768212	C5	621620	14	 @M4N, Wish I could express a bit more gratitude than a +1. This has become my favorite way of dealing with the session/cache in my projects. My code, literally, is thanking you.
+
+4365268	C6	4057391	10	 Reminds me of [COMEFROM](http://en.wikipedia.org/wiki/COMEFROM)
+
+1233068	C5	926806	28	 Man - Could you write a book on that, please?
+
+240260	C6	415396	24	 But are you actually converting it into an array at the end, as the question requires? If not, of course it's faster - but it's not fulfilling the requirements.
+
+4360377	C2	4057391	11	 Sounds a lot like Thread.Join().
+
+9425842	C4	7741474	11	 @abhinav: 20MHz is still **20 MILLION** operations per second. Even in that case, this is a pre-optimization, so unless this is a *known* performance bottleneck, it's not worth the time it takes to think about it.
+
+8054017	C2	5325861	49	 Well, mapped entities in EF basically represent database tables. If you project onto a mapped entity, what you basically do is **partially** load an entity, which is not a valid state. EF won't have any clue how to e.g. handle an update of such an entity in the future (the default behaviour would be probably overwriting the non-loaded fields with nulls or whatever you'll have in your object). This would be a dangerous operation, since you would risk losing some of your data in the DB, therefore it is not allowed to partially load entities (or project onto mapped entities) in EF.
+
+45841	C4	129395	20	 This only works if all members are marked [Serializable]
+
+11093915	C7	8870593	7	 @BlueRaja-DannyPflughoeft: A lot of effort is spent trying to ensure that floating-point operations are as close as possible to the correctly-rounded value. `pow` is notoriously hard to implement accurately, being a transcendental function (see [Table-Mak
+
+14857170	C6	10380166	8	 "@artbristol: ""The question was asked 3 years ago, and is totally ambiguous. You have no evidence of how OP was going to use the bytes."" The OP is still here. Why is the question ambiguous? If you want to know what I was using the bytes for, read the com"
+
+1119528	C7	8480	62	 Flags itself does nothing. Also, C# does not require Flags per se. But the `ToString` implementation of your enum uses Flags, and so does `Enum.IsDefined`, `Enum.Parse`, etc. Try to remove Flags and look at the result of MyColor.Yellow | MyColor.Red; without it you get "5", with Flags you get "Yellow, Red". Some other parts of the framework also use [Flags] (e.g., XML Serialization).
+
+271202	C7	371348	7	 Actually, I could probably lose one of them; the point is to try to minimise the number of collisions - so that an object {1,0,0} has a different hash to {0,1,0} and {0,0,1} (if you see what I mean),
+
+1548652	C2	194671	6	 Constructor-constraint, 10.1.5 in the C# 3.0 langauge spec
+
+24026677	C1	16694227	6	 But _why_ is any code allowed after the break and before the next case?
+
+32055233	C7	21273904	30	 +1 because you keep adding extra information that I'm not adding :P
+
+271215	C7	371348	6	 I tweaked the numbers to make it clearer (and added a seed). Some code uses different numbers - for example the C# compiler (for anonymous types) uses a seed of 0x51ed270b and a factor of -1521134295.
+
+13686362	C4	10380166	83	 What's ugly about this one is, that `GetString` and `GetBytes` need to executed on a system with the same endianness to work. So you can't use this to get bytes you want to turn into a string elsewhere. So I have a hard time to come up with a situations where I'd want to use this.
+
+1140477	C4	1308480	15	 Programs like this hardly seem like good candidates for testing the impact of exception handling, too much of what would be going on in normal try{} catch{} blocks is going to be optimized out. I may be out to lunch on that...
+
+1140474	C1	1308480	10	 Can you try them in reverse order as well to be sure that JIT compilation hasn't had an effect on the former?
+
+25754149	C6	17673433	18	 So basically, the vibe I am getting is, "No, there is no cleaner way!"
+
+1129979	C1	201341	15	 What's strange is if you miss out the last parameter, it appends for me ?Length=8 to the current action
+
+14459184	C4	10380166	6	 The question was asked 3 years ago, and is totally ambiguous. You have no evidence of how OP was going to use the bytes. Other people will have the *exact same question*, but will be planning to use the bytes in a situation where encoding matters, and your answer will be dead wrong in that case.
+
+9295864	C6	7595443	8	 I believe the correct grammar would be "Exception caught"
+
+9219246	C6	7595443	7	 @blindy: Wouaw, that really pissed you off, sorry. Are you hiring ;-)
+
+25157534	C7	17331230	13	 "Surely there's no good reason for this and MS should 'fix' it - as Ternary is effectively just a shorter syntax for if/else?! You certainly wouldn't expect to pay a performance penalty anyway."
+
+706768	C2	898867	19	 "I agree with thecoop. Note that you don't need a finalizer if you are only dealing with managed resources (in fact, you should NOT try to access managed objects from within your finalizer (other than ""this""), because there is no guaranteed order in which the GC will clean up objects. Also, if you are using .Net 2.0 or better, you can (and should) use SafeHandles to wrapper unmanaged handles. Safehandles greatly reduce your need to write finalizers for your managed classes at all. http://blogs.msdn.com/bclteam/archive/2005/03/16/396900.aspx"
+
+9615900	C7	7877736	13	 That was a great answer. Reminds me why I read your blog even though I'm a Java guy. ;-)
+
+7058415	C3	5193851	170	 Nice answer. It's also worth noting that if you're trying to upload large files (greater than the default 4 MB) you'll want to set `<httpRuntime maxRequestLength="x" />` in your web.config, where x is the number of KB allowed for upload.
+
+2104015	C3	78612	6	 @johnc I like your response because it'll work **almost** every time, but as an embedded systems guy, and mid-90's x86 assembly language graphics nut, optimization is always on my mind. Just remember that deserialization involves costly string processing
+
+401731	C6	78612	254	 Sorry not to have read the previous 78611 answers before offering perfectly valid and helpful advice
+
+7074682	C3	5193851	65	 Another point is you can replace the controller and action names (strings) in the Html.BeginForm() call like so: `Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" })`. This is useful if it is a partial view that is called from multiple parent views (or similar).
+
+880710	C4	1068183	41	 this is a bug-prone code. You actually compare by value, not by index. If there is an object which equals to the last one, you'll have several "lastone: " lines.
+
+4286359	C7	371348	27	 @Leandro López: Usually the factors are chosen to be prime numbers because it makes the number of collisions smaller.
+
+18503225	C5	13516748	69	 +1, because even **I** understand it now
+
+2997719	C1	1705604	17	 does marking this as Accepted also means that @Kai accepts the terms stipulated by @ligos?
+
+770233	C7	961594	70	 If I only could give another +1 for the FlibbleBananaSnowball property ... :-)
+
+2078872	C5	2138588	58	 +1 for your book pimping! ;-)
+
+20790506	C6	14837342	15	 +1 I knew you will be around, you LOVE these kinds of mysterious questions :)
+
+21663858	C6	937558	30	 @ChrisW: you might be wondering what is going on. Do not be alarmed. You're just being subject to the wrath of the Daily WTF community: http://thedailywtf.com/Comments/The-Right-Way-to-Find-a-File.aspx#402913
+
+22991768	C2	16101815	39	 @Petr: Yes, it's not significant, because accessing the dictionary is very fast, it doesn't really matter if you do it once or twice. Most of those 250 ms most likely is spent in the test loop itself.
+
+19874505	C7	14301496	7	 I called it ICanLog, because we work too often with words (nouns) that mean nothing. E.g., what is a Broker? A Manager? Even a Repository is not defined in a unique way. And having all these things as nouns is a typical disease of OO languages (see http://steve-yegge.blogspot.de/2006/03/execution-in-kingdom-of-nouns.html). What I want to express is that I have a component that can do logging for me - so why not call it that way? Of course, this is also playing with the I as the first person, hence ICanLog(ForYou).
+
+21867943	C7	82473	12	 -1 I disagree with this answer, and find it misguiding. Since a base class defines the behaviour that any class must abide to (See Liskov's Substitution Principle), but does not (and should not) restrict to add behaviour. A base class may only define what
+
+6774015	C4	182924	10	 @Jduv just tried it out using `StringBuilder`. It takes about twice as long. It's a very short string (max 3 characters - Excel 2010 goes up to column XFD), so maximum of 2 string concatenations. (I used 100 iterations of translating the integers 1 to 163
+
+16245205	C6	12005272	20	 this was long wtf moment, they could have been adding those min files commented out with reason or something to result, now whole hour wasted wondering who is stealing my script files from output.
+
+3561245	C2	201341	17	 @Chris S - I know this is an old post, but the reason for the ?Length=8 is because you need to have a `, null` parameter AFTER your `new { ... }` ... because if you check the overloads of that method, it's thinking your paramters are htmlArguments ... not
+
+16117028	C4	5342460	9	 Despite this is a popular answer. It is not right, fail to catch at least two invalid formats: "Abc.@example.com" , "Abc..123@example.com"
+
+893483	C4	1080445	14	 Not sure I'd agree with the Length*2 buffer expansion policy there.
+
+8256526	C7	6919149	7	 @Dan Diplo, It's okay, It's not like I'm not prohibited to not to do that or not.
+
+530604	C2	469315	8	 @Chris: only flag enums should be pluralized. That is, enumerations whose members are combined using the | operator.
+
+552704	C7	31929	19	 lolcat at IHasName
+
+164518	C5	324837	32	 GOTO is good and fine. This is why it exists in the C# (and mostly all) languages. I think it's just "cool to not like GOTO". BTW, this is the answer :)
+
+16309427	C2	1248	26	 I think if the constants were renamed to accurately describe the value that is in them, it'd be easier to understand. So SecondsPerMinute = 60; MinutesPerHour = 60; SecondsPerHour = MinutesPerHour * SecondsPerHour; etc. Just calling it MINUTE=60 doesn't allow the reader to determine what the value is.
+
+2578637	C5	2572919	43	 One of the most complete, helpful, and interesting answers I've read on SO.
+
+1976998	C6	2047657	25	 Well, that's how we develop software at Safewhere, so we don't share your experience...
+
+60126	C6	174223	54	 I think that, in this particular instance, goto is not considered harmful.
+
+37958393	C2	24516311	15	 If someone still wonders about the rules that in this case make the compiler choose `string.Format(string, params object[])` over `string.Format(string, object)` might want to read the C# specification chapter "*Better function member*" (in ECMA standard it is chapter *14.4.2.2*, in current MS standard it is chapter *7.5.3.2*) -- it boils down to that the `null` argument does not require `params object[]` to be expanded, and that `object[]` is a more specific parameter type than `object`.
+
+6077167	C7	5376343	39	 I fail to understand why I should follow this guideline.
+
+23127902	C4	16101815	6	 @LarsH Do also note that when trying to access a file (or some other external resource), it may change state between the check and actual access attempt. In these cases, using exceptions is the correct way to go. See [Stephen C's answer to this question](
+
+4763342	C2	4057391	13	 In your words: it lets you "pause" the method, but it should be noted that it doesn't pause or block the thread.
+
+12312956	C7	9689761	11	 Thanks Mikael. I'm starting to wonder if our profiles should have a PayPal link. :-)
+
+4201068	C4	1122519	43	 Note that instance members of the `Random` class are NOT documented as being thread-safe, so if this method is called from multiple threads at the same time (highly likely if you're making a web app, for example) then the behaviour of this code will be undefined. You either need to use a lock on the random or make it per-thread.
+
+6771242	C6	926806	68	 @finnw: Whether I've tested it or not is irrelevant. Solving this integer arithmetic problem isn't *my* business problem; if it were, then I'd be testing it. If someone wants to take code from strangers off the internet to solve their business problem the
+
+12930901	C4	10095362	34	 If having 4 different local variables named `a` in the same function looks pretty normal to you, you've been looking at the wrong code all this time. :)
+
+25744984	C6	17673433	24	 Mother of god... +1
+
+579560	C2	768001	22	 @Rekreativc - no, re-read it: it is working **only** when there are break-points, which cause a delay and thus provide different seeds. Without the break-points, everything is equal, i.e. not random, i.e. broken.
+
+9492488	C4	78612	7	 Just thought I'd mention that whilst this method is useful, and I've used it myself many a time, it's not at all compatible with Medium Trust - so watch out if you're writing code that needs compatibility. BinaryFormatter access private fields and thus cannot work in the default permissionset for partial trust environments. You could try another serializer, but make sure your caller knows that the clone may not be perfect if the incoming object relies on private fields.
+
+924835	C5	926806	22	 Great one. I learned a lot about algorithm design by this answer.
+
+2580793	C2	324837	13	 Goto itself isn't ugly. What is ugly is abusing goto which results in spaghetti code. Using goto to break out of nested loop is perfectyly ok. Besides, note that all break, continue and return, from structural programming point of view, are hardly better than goto - basically they're the same thing, just in nicer packaging. That's why pure structural languages (such as original Pascal) lack all of three.
+
+1363962	C5	1510186	17	 And the instructor will be quite right to. Using any other answer can also be called cheating. However, it still answers the question.
+
+735909	C5	926806	38	 Excellent exemplary answer
+
+287070	C6	469315	21	 People like you give us a bad name, Barry. Get a sense of humor.
+
+25142371	C7	17331230	12	 The compiler might as well expand out the ternary into an if-else.
+
+2862288	C7	2819962	39	 Perhaps Daniel enjoys teaching folks to fish.
+
+1363950	C6	1510186	6	 It looks like the OP has a specific homework assignment. If he submits your solution, the instructor will consider it cheating.
+
+325377	C5	424414	6	 +1 works for any string, not just ones which fit the C# rules for namespacing
+
+688726	C7	881489	14	 Yep, I think "evil" is about right... consider the case of null pointer exception thrown somewhere from a large body of code. The message is vanilla, without the stack trace you're left with "something was null somewhere". NOT good when production is dead; and you've NO minutes or less to work out the flamin' problem is, and dismiss or rectify it... Good exception handling is worth it's weight in gold.
+
+9464364	C2	174223	8	 @Dancrumb: At the time that the feature was written, C# had not yet added any "soft" keywords (like 'yield', 'var', 'from', and 'select'), so they had three real options: 1) make 'fallthrough' a hard keyword (you cant use it as a variable name), 2) write
+
+677013	C2	299273	14	 You are the one not reading the comments. As chilltemp says above, he's calling code that he has NO control over - and wants it to abort. He has no option other than Thread.Abort() if he wants this to run within his process. You are right that Thread.Abort is bad - but like chilltemp says, other things are worse!
+
+753275	C2	926806	17	 @Jon: DivRoundUp(12, 2) falls into case (3) of the spec, not case (4).
+
+784649	C6	926806	62	 Darn it, pedantry fail :(
+
+412591	C7	600306	33	 ... Resulting in a 1010000 after the binary and. The only false positive would be 0, which is why I would use: return (x != 0) && ((x & (x - 1)) == 0);
+
+1363928	C1	1510186	6	 Why was this downvoted? It answers the question (How can I make this better?)
+
+412589	C7	600306	36	 @Kripp: The number will be of the binary form 1000...000. When you -1 it, it will be of the form 0111...111. Thus, the two number's binary and would result is 000000. This wouldn't happen for non-power-of-twos, since 1010100 for example would become 10100
+
+12312876	C7	9689761	17	 In he *real* world you could probably charge someone for half a days work. Here you get a +1 from me :).
+
+9977958	C2	5325861	7	 D.T.O - [Data Transfer Objects](http://msdn.microsoft.com/en-us/magazine/ee236638.aspx#id0080022)
+
+12932236	C6	10095362	12	 This should not be considered as bizarre at all.
+
+133992	C5	151560	83	 good explanation :)
+
+2668967	C2	2652481	15	 Note that adding `MethodImpl(MethodImplOptions.NoInlining)` to `GetCurrentMethod` only stops that method from being inlined into its caller. It doesn't prevent the calling method itself from being inlined into its own caller etc, etc.
+
+24278059	C2	1122519	11	 @NickFreeman: Remember [the upper bound is exclusive](http://msdn.microsoft.com/en-us/library/2dx6wyd4.aspx), so `ch = (char)random.Next('A','Z');` would never return `'Z'`. So you'd need `ch = (char)random.Next('A', 'Z' + 1);` to include the `'Z'`.
+
+14994020	C3	250400	28	 "epoch is UTC, so you actually need: DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc); in C#, otherwise you'll get local time."
+
+30391908	C1	250400	9	 Why you convert ToLocalTime ?
+
+9634410	C7	7877736	18	 About 4 paragraphs in I was saying to my self "This sounds like Eric", by the 5th or 6th I'd graduated to "Yep, definitely Eric" :) Another truly & epically comprehensive answer.
+
+12930843	C6	10095362	53	 Why bizarrely? That looks pretty normal (albeit contrived).
+
+1098590	C2	31929	8	 The generated pseudoclasess for references types in C# share the same implementation so you won't got exactly ListOfPeople. Check out http://blogs.msdn.com/ericlippert/archive/2009/07/30/generics-are-not-templates.aspx
+
+273722	C7	154803	14	 "I'm not entirely sure ... if you also need to combine volatile with the increment." They cannot be combined AFAIK, as we can't pass a volatile by ref. Great answer by the way.
+
+23911987	C3	16621778	6	 @RobertMcKee: Nitpick: The full unicode character set is actually 21 bit (17 planes of 16 bit each). But of course a 21-bit-datatype is impractical, so if you use a power-of-2 datatype, it's true that you need 32 bit.
+
+2647497	C7	2633016	12	 Nothing beats Haskell's owl: `((.)$(.))` (which compiles and has a type `(a -> b -> c) -> a -> (a1 -> b) -> a1 -> c`). http://www.haskell.org/haskellwiki/Pointfree
+
+5175236	C1	4691582	13	 Do you really think the `catch {}` is a good idea?
+
+13690757	C4	10380166	24	 @CodeInChaos: Like I said, the whole point of this is if you want to use it on the same kind of system, with the same set of functions. If not, then you shouldn't use it.
+
+11085261	C6	8870593	310	 Great answer, StackOverflow needs more of this sort of thing, instead of 'Why would you want to know that?' that happens all too often.
+
+25762155	C6	17673433	10	 This needs to make it into the framework...maybe even as an operator.

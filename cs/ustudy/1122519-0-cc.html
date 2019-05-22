@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Random String Generator Returning Same String</h2>
+ <div>
+ D: I've developed a random string generator but it's not behaving quite as I'm hoping. My goal is to be able to run this twice and generate two distinct four character random strings. However, it just generates one four character random string twice.
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #2</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="2" /> 
+   <hr /> 
+   <h4>File ID: #1122519-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="1122519-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public class RandomStringGenerator
+{
+    private static readonly Random Random = new Random();
+    public static string RandomString(int size)
+    {
+        var builder = new StringBuilder();
+        for (int i = 0; i &lt; size; i + +)
+        {
+            char ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * Random.NextDouble() + 65)));
+            builder.Append(ch);
+        }
+        return builder.ToString();
+    }
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>Note that instance members of the `Random` class are NOT documented as being thread-safe, so if this method is called from multiple threads at the same time (highly likely if you are making a web app, for example) then the behaviour of this code will be undefined. You either need to use a lock on the random or make it per-thread. </li>
+    <li>Also, you can get a random uppercase letter by using <code>`ch = (char)random.Next('A','Z');`</code> a lot simpler than the unreadable line <code>`ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));`</code> from the original post. Then if you want to switch it to lowercase, you can easily switch to `(char)random.Next('a','z');` </li>
+    <li>Remember [the upper bound is exclusive](http://msdn.microsoft.com/en-us/library/2dx6wyd4.aspx), so <code>`ch = (char)random.Next('A','Z');`</code> would never return `'Z'`. So you'd need <code>`ch = (char)random.Next('A', 'Z' + 1);`</code> to include the `'Z'`. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

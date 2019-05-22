@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Implement C# Generic Timeout</h2>
+ <div>
+ D: I am looking for good ideas for implementing a generic way to have a single line (or anonymous delegate) of code execute with a timeout.
+ <pre class="prettyprint">
+TemperamentalClass tc = new TemperamentalClass();
+tc.DoSomething();  // normally runs in 30 sec.  Want to error at 1 min
+</pre>
+I'm looking for a solution that can elegantly be implemented in many places where my code interacts with temperamental code (that I can't change).
+<br />
+In addition, I would like to have the offending "timed out" code stopped from executing further if possible.
+
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #9</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="9" /> 
+   <hr /> 
+   <h4>File ID: #299273-1-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="299273-1-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public class ThreadingUtils
+{
+    public static bool CallWithTimeout (Action action, int timeoutMilliseconds)
+    {
+        Thread threadToKill = null;
+        Action wrappedAction = () = &gt; {
+            threadToKill = Thread.CurrentThread;
+            action ();
+        };
+        IAsyncResult result = wrappedAction.BeginInvoke (null, null);
+        if (result.AsyncWaitHandle.WaitOne (timeoutMilliseconds)) {
+            wrappedAction.EndInvoke (result);
+            return true;
+        } else {
+            threadToKill.Abort ();
+            return false;
+        }
+    }
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>I can not believe this is the accepted answer, someone must not be reading the comments here, or the answer was accepted before the comments and that person does not check his replies page. Thread.Abort is not a solution, it's just another problem you need to solve! </li>
+    <li>You are the one not reading the comments. As chilltemp says above, he's calling code that he has NO control over - and wants it to abort. He has no option other than <code>Thread.Abort()</code> if he wants this to run within his process. You are right that Thread.Abort is bad - but like chilltemp says, other things are worse! </li>
+    <li><code>Thread.Abort()</code> is very dangerous to use, It should not be used with regular code, only code that is guaranteed to be safe should be aborted, such as code that is Cer.Safe, uses constrained execution regions and safe handles. It should not be done for any code. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

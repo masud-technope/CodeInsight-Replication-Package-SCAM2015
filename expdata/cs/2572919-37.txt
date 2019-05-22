@@ -1,0 +1,8 @@
+// Create the pool early
+Pool<IFoo> pool = new Pool<IFoo>(PoolSize, p = > new PooledFoo(p),
+                                 LoadingMode.Lazy, AccessMode.Circular);
+// Sometime later on...
+using (IFoo foo = pool.Acquire())
+{
+    foo.Test();
+}

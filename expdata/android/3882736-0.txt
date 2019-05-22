@@ -1,0 +1,15 @@
+@Override
+public void onShowCustomView(View view, CustomViewCallback callback) {
+    super.onShowCustomView(view, callback);
+    if (view instanceof FrameLayout) {
+        FrameLayout frame = (FrameLayout) view;
+        if (frame.getFocusedChild() instanceof VideoView) {
+            VideoView video = (VideoView) frame.getFocusedChild();
+            frame.removeView(video);
+            a.setContentView(video);
+            video.setOnCompletionListener(this);
+            video.setOnErrorListener(this);
+            video.start();
+        }
+    }
+}

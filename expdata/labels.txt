@@ -1,0 +1,11 @@
+Class Labels
+===============
+
+C1 Clarification Question
+C2 Code Documentation
+C3 Tips and Complementary Information
+C4 Bug, Concern and Limitation
+C5 Strength Statement
+C6 Miscellaneous
+C7 Non-Informative Comments
+

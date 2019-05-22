@@ -1,0 +1,12 @@
+switch (/*...*/) {
+case 0: // shares the exact same code as case 1
+case 1:
+    // do something
+goto case 2;
+case 2:
+    // do something else
+    goto default;
+default:
+    // do something entirely different
+    break;
+}

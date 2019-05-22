@@ -1,0 +1,7 @@
+class LoopingThread extends Thread {
+    public @Override void run() {
+        while (true) {
+            System.out.println(Main.x);
+        }
+    }
+}

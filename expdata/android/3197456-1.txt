@@ -1,0 +1,18 @@
+public class QueryService extends IntentService {
+    protected void onHandleIntent(Intent intent) {
+        final ResultReceiver receiver = intent.getParcelableExtra(""receiver"");
+        String command = intent.getStringExtra(""command"");
+        Bundle b = new Bundle();
+        if (command.equals(""query"") {
+        receiver.send(STATUS_RUNNING, Bundle.EMPTY);
+            try {
+                // get some data or something
+                b.putParcelableArrayList(""results"", results);
+                receiver.send(STATUS_FINISHED, b)
+            } catch (Exception e) {
+                b.putString(Intent.EXTRA_TEXT, e.toString());
+                receiver.send(STATUS_ERROR, b);
+            }
+        }
+    }
+}

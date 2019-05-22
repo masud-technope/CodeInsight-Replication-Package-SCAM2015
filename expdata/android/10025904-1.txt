@@ -1,0 +1,55 @@
+public class DisableHardButton extends Activity {    /** Called when the activity is first created. */
+    TextView mTextView;
+    ToggleButton mToggleButton;
+    boolean isLock =false;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        mTextView =(TextView) findViewById(R.id.tvInfo);
+        mToggleButton =(ToggleButton) findViewById(R.id.btnLock);
+        mToggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // TODO Auto-generated method stub
+                isLock =isChecked;
+                onAttachedToWindow();
+            }
+        });
+    }
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if ( (event.getKeyCode() = = KeyEvent.KEYCODE_HOME) && isLock) {
+            mTextView.setText(""KEYCODE_HOME"");
+            return true;
+        }
+        else
+            return super.dispatchKeyEvent(event);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if ( (keyCode = =KeyEvent.KEYCODE_BACK) && isLock)
+        {
+            mTextView.setText(""KEYCODE_BACK"");
+            return true;
+        }
+        else
+            return super.onKeyDown(keyCode, event);
+    }
+    @Override
+    public void onAttachedToWindow()
+    {
+        System.out.println(""Onactivity attached :"" +isLock);
+        if (isLock)
+        {
+            this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+            super.onAttachedToWindow();
+        }
+        else
+        {
+            this.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION);
+            super.onAttachedToWindow();
+        }
+    }
+}

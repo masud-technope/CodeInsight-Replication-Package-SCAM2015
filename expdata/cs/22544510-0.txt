@@ -1,0 +1,19 @@
+private Patient FindMaxPatient()
+{
+    int max = 0;
+    Patient maxPatient = patientInfo[0];
+    for (int itemCountInteger = 0; itemCountInteger < patientInfo.Length; itemCountInteger + +)
+    {
+        int a = 0;
+        Patient patientData = patientInfo[itemCountInteger];
+        if (int.TryParse(patientData.differenceAsString, out a))
+        {
+            if (a > max)
+            {
+                max = a;
+                maxPatient = patientData ;
+            }
+        }
+    }
+    return maxPatient;
+}

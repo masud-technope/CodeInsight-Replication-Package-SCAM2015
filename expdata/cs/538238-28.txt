@@ -1,0 +1,21 @@
+protected void Dispose(Boolean itIsSafeToAlsoFreeManagedObjects)
+{
+    //Free unmanaged resources
+    Win32.DestroyHandle(this.gdiCursorBitmapStreamFileHandle);
+    //Free managed resources too, but only if I'm being called from Dispose
+    //(If I'm being called from Finalize then the objects might not exist
+    //anymore
+    if (itIsSafeToAlsoFreeManagedObjects)
+    {
+        if (this.databaseConnection ! = null)
+        {
+            this.databaseConnection.Dispose();
+            this.databaseConnection = null;
+        }
+        if (this.frameBufferImage ! = null)
+        {
+            this.frameBufferImage.Dispose();
+            this.frameBufferImage = null;
+        }
+    }
+}

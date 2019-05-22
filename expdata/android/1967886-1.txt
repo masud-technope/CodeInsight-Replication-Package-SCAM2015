@@ -1,0 +1,9 @@
+LayoutInflater inflater = (LayoutInflater)
+                          this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+PopupWindow pw = new PopupWindow(
+    inflater.inflate(R.layout.popup_example, null, false),
+    100,
+    100,
+    true);
+// The code below assumes that the root container has an id called 'main'
+pw.showAtLocation(this.findViewById(R.id.main), Gravity.CENTER, 0, 0);

@@ -1,0 +1,16 @@
+public void Dispose()
+{
+    //Free unmanaged resources
+    Win32.DestroyHandle(this.gdiCursorBitmapStreamFileHandle);
+    //Free managed resources too
+    if (this.databaseConnection ! = null)
+    {
+        this.databaseConnection.Dispose();
+        this.databaseConnection = null;
+    }
+    if (this.frameBufferImage ! = null)
+    {
+        this.frameBufferImage.Dispose();
+        this.frameBufferImage = null;
+    }
+}

@@ -1,0 +1,7 @@
+algorithm checkRotation(string s1, string s2)
+if ( len(s1) ! = len(s2))
+    return false
+           if ( substring(s2, concat(s1, s1))
+                   return true
+                          return false
+                                 end

@@ -1,0 +1,44 @@
+Int32 reps = 10000000;
+private void Block1(int myFlag)
+{
+    String width;
+    String height;
+    Stopwatch sw = new Stopwatch();
+    sw.Start();
+    for (int i = 0; i < reps; i + +)
+    {
+        if (myFlag = = 1)
+        {
+            width = String.Format("" {0:g} %"", 60);
+            height = String.Format("" {0:g} %"", 60);
+        }
+        else
+        {
+            width = String.Format("" {0:g} %"", 80);
+            height = String.Format("" {0:g} %"", 80);
+        }
+    }
+    sw.Stop();
+    Double time = (Double)sw.Elapsed.Ticks / Stopwatch.Frequency * 1000000000.0 / reps;
+    MessageBox.Show(time.ToString() + "" ns"");
+}
+private void Block2(int myFlag)
+{
+    String width;
+    String height;
+    Stopwatch sw = new Stopwatch();
+    sw.Start();
+    for (int i = 0; i < reps; i + +)
+    {
+        width = String.Format("" {0:g} %"", 80);
+        height = String.Format("" {0:g} %"", 80);
+        if (myFlag = = 1)
+        {
+            width = String.Format("" {0:g} %"", 60);
+            height = String.Format("" {0:g} %"", 60);
+        }
+    }
+    sw.Stop();
+    Double time = (Double)sw.Elapsed.Ticks / Stopwatch.Frequency * 1000000000.0 / reps;
+    MessageBox.Show(time.ToString() + "" ns"");
+}

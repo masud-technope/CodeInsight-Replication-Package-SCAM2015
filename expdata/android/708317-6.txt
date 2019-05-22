@@ -1,0 +1,22 @@
+class MyApp extends Application {
+    private MyStateManager myStateManager = new MyStateManager();
+    public MyStateManager getStateManager() {
+        return myStateManager ;
+    }
+}
+class MyStateManager {
+    MyStateManager() {    /* this should be fast */}
+    String getState() {    /* if necessary, perform blocking calls here */    /* make sure to deal with any multithreading/synchronicity issues */
+        ...
+        return state;
+    }
+}
+class Blah extends Activity {
+    @Override
+    public void onCreate(Bundle b) {
+        ...
+        MyStateManager stateManager = ((MyApp)getApplicationContext()).getStateManager();
+        String state = stateManager.getState();
+        ...
+    }
+}

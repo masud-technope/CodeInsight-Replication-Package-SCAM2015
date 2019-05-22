@@ -1,0 +1,14 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        //try the five second method with a 6 second timeout
+        CallWithTimeout(FiveSecondMethod, 6000);
+        //try the five second method with a 4 second timeout
+        //this will throw a timeout exception
+        CallWithTimeout(FiveSecondMethod, 4000);
+    }
+    static void FiveSecondMethod()
+    {
+        Thread.Sleep(5000);
+    }

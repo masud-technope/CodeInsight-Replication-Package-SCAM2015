@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>CodeInsight: Recommending Insightful Comments for Source Code using Crowdsourced Knowledge</title>
+<link href="../css/style1.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+hl
+{
+ color:#0066FF;
+ font-size:18px;
+}
+.important
+{
+ color:#FF0000;
+ font-weight:bold;
+}
+body
+{
+margin-top:100px;
+}
+</style>
+</head>
+
+<body style="margin-left:300px; margin-right:300px">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="100">
+<img src="img/ci.png" width="80" height="91" border="0" />
+</td><td>
+<h1>CodeInsight: Recommending Insightful Comments for Source Code using Crowdsourced Knowledge</h1>
+</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<div class="rounded2"><strong>
+<a href="https://github.com/masud-technope/CodeInsight-Replication-Package-SCAM2015">
+Get from GitHub
+</a></strong>
+</div>
+<br>
+<div class="rounded2" style="background-color:green;color:yellow">
+<code>
+git clone https://github.com/masud-technope/CodeInsight-Replication-Package-SCAM2015.git
+</code>
+</div>
+<p>&nbsp;</p>
+<div class="rounded2">
+<strong>Abstract:</strong> Recently, automatic code comment generation is proposed to facilitate program comprehension. Existing code comment generation techniques focus on describing the functionality of the source code.  
+However, there are other aspects such as insights about quality or issues of the code, which are overlooked by earlier approaches.
+In this paper, we describe a mining approach that recommends insightful comments about the quality, deficiencies or scopes for further improvement of the source code. 
+First, we conduct an exploratory study that analyzes crowdsourced knowledge from
+Stack Overflow discussions as a potential resource for source code comment recommendation. 
+Second, based on the findings from the exploratory study, we propose a heuristic-based technique for mining insightful comments from Stack Overflow Q & A site for source code comment recommendation. Experiments with 292 Stack Overflow code segments and 733 discussion comments show that our approach has a promising recall of 85.42%.
+We also conducted a complementary user study which confirms the accuracy and usefulness of the recommended comments.
+</div>
+
+<p>
+<h3>Exploratory Study</h3>
+<hr />
+<h4>Discussion comments</h4>
+<ul>
+<li><a href="expdata/labels.txt">Comment categories</a></li>
+<li><a href="expdata/java-comments.txt">Java labeled comments</a></li>
+<li><a href="expdata/android-comments.txt">Android labeled comments</a></li>
+<li><a href="expdata/cs-comments.txt">C# labeled comments</a></li>
+</ul>
+
+<h4>Stack Overflow code segments</h4>
+<p>
+File structure: [Postid-segmentid.txt]
+</p>
+<ul>
+<li><a href="expdata/java">Java code segments</a></li>
+<li><a href="expdata/android">Android code segments</a></li>
+<li><a href="expdata/cs">C# code segments</a></li>
+</ul>
+</p>
+
+<h3>User Study</h3>
+<hr />
+<h4>Open source code segments</h4>
+<p>
+Line structure: [SO code segment ID | OSS file line range | OSS file URL ]
+</p>
+<ul>
+<li><a href="expdata/java-gc-cc-mapping.txt">Matched Java code segments from OSS</a></li>
+<li><a href="expdata/android-gc-cc-mapping.txt">Matched Android code segments from OSS</a></li>
+<li><a href="expdata/cs-gc-cc-mapping.txt">Matched C# code segments from OSS</a></li>
+</ul>
+
+<p>
+<h3>Related Publication(s)</h3>
+<hr />
+<ul>
+<li>
+<strong>M. Masudur Rahman</strong>, C.K. Roy and Iman Keivanloo, <a href="http://homepage.usask.ca/~masud.rahman/papers/masud-SCAM2015.pdf">"Recommending Insightful Comments for Source Code using Crowdsourced Knowledge"</a>, In Proceeding of The 15th IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM 2015), 10 pp., Bremen, Germany, September 2015 (Acceptance rate: 35.29%)
+</li>
+</ul>
+<div class="rounded2">
+<pre>
+@INPROCEEDINGS{scam2015masud, 
+author={Rahman, M. M. and Roy, C. K. and Keivanloo, I.}, 
+booktitle={Proc. SCAM}, title={Recommending {I}nsightful {C}omments for {S}ource {C}ode using {C}rowdsourced {K}nowledge}, 
+year={2015}, 
+pages={81-90} } 
+</pre>
+</div>
+
+
+
+<h4 style="text-align:center">
+<a style="text-decoration:none; cursor:pointer" href="../tools">&larr; Check out other tools by Masud Rahman</a>
+</h4>
+
+<hr />
+&copy; Masud Rahman, Computer Science, University of Saskatchewan, Canada.
+</p>
+
+</body>
+</html>

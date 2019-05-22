@@ -1,0 +1,25 @@
+private void ConnectionStateChange(object sender, StateChangeEventArgs e)
+{
+    string s = ""hi"";
+    switch (s)
+    {
+    case ""hi"":
+    {
+        int a = 1;
+        a + +;
+    }
+    {
+        int a = 2;
+        a + +;
+    }
+    break;
+}
+{
+    int a = 1;
+    a + +;
+}
+{
+    int a = 2;
+    a + +;
+}
+}

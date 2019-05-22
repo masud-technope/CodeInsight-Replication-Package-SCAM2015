@@ -1,0 +1,21 @@
+DatePickerDialog picker = new DatePickerDialog(
+    this,
+    null, // instead of a listener
+    2012, 6, 15);
+picker.setCancelable(true);
+picker.setCanceledOnTouchOutside(true);
+picker.setButton(DialogInterface.BUTTON_POSITIVE, ""OK"",
+new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        Log.d(""Picker"", ""Correct behavior!"");
+    }
+});
+picker.setButton(DialogInterface.BUTTON_NEGATIVE, ""Cancel"",
+new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        Log.d(""Picker"", ""Cancel!"");
+    }
+});
+picker.show();

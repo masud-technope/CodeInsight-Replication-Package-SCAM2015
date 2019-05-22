@@ -1,0 +1,18 @@
+class MyApp extends Application {
+    private String myState;
+    public String getState() {
+        return myState;
+    }
+    public void setState(String s) {
+        myState = s;
+    }
+}
+class Blah extends Activity {
+    @Override
+    public void onCreate(Bundle b) {
+        ...
+        MyApp appState = ((MyApp)getApplicationContext());
+        String state = appState.getState();
+        ...
+    }
+}

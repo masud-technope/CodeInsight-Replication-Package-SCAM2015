@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Maintain/Save/Restore scroll position when returning to a ListView</h2>
+ <div>
+ D: I have a long ListView that the user can scroll around before returning to the previous screen. When the user opens this ListView again, I want the list to be scrolled to the same point that it was previously. Any ideas on how to achieve this?
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #9</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="9" /> 
+   <hr /> 
+   <h4>File ID: #3035521-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="3035521-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public static void bindDataNoRefresh(ListView listView, Runnable runnable) {
+    int position = listView.getFirstVisiblePosition();
+    View vv = listView.getChildAt(0);
+    int tot = 0;
+    if (vv ! = null) {
+        tot = (int) vv.getScrollY();
+    }
+    runnable.run();
+    listView.setSelectionFromTop(position, tot);
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>This can be made even simpler be using one line to save: <code>`int index = mList.getFirstVisiblePosition();`</code> and only one line to restore: <code>`mList.setSelectionFromTop(index, 0);`.</code> Great answer though (+1)! I have been looking for an elegant solution to this problem. </li>
+    <li>Not really understanding how this works. I'm using <code>listView.getFirstVisiblePosition()</code> only and understand that, but not sure what's going on here. Any chance of a brief explanation? :) </li>
+    <li>So <code>ListView.getFirstVisiblePosition()</code> returns the top visible list item. But this item may be partially scrolled out of view, and if you want to restore the exact scroll position of the list you need to get this offset. So <code>ListView.getChildAt(0)</code> returns the View for the top list item, and then <code>View.getTop()</code> returns its relative offset from the top of the ListView. Then, to restore the ListView's scroll position, we call <code>ListView.setSelectionFromTop()</code> with the index of the item we want and an offset to position its top edge from the top of the ListView. All clear? </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

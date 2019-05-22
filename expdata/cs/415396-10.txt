@@ -1,0 +1,4 @@
+byte[] rv = new byte[ a1.Length + a2.Length + a3.Length ];
+System.Buffer.BlockCopy( a1, 0, rv, 0, a1.Length );
+System.Buffer.BlockCopy( a2, 0, rv, a1.Length, a2.Length );
+System.Buffer.BlockCopy( a3, 0, rv, a1.Length + a2.Length, a3.Length );

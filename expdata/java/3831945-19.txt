@@ -1,0 +1,4 @@
+MutableInt x = new MutableInt();    // x is 0.
+MutableInt y = new MutableInt();    // y is 0.
+MutableInt temp = postIncrement(x); // Now x is 1, and temp is 0.
+y = temp;                           // y is still 0.

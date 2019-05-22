@@ -1,0 +1,12 @@
+private void tryNotifyDateSet() {
+    if (mCallBack ! = null) {
+        mDatePicker.clearFocus();
+        mCallBack.onDateSet(mDatePicker, mDatePicker.getYear(),
+                            mDatePicker.getMonth(), mDatePicker.getDayOfMonth());
+    }
+}
+@Override
+protected void onStop() {
+    tryNotifyDateSet();
+    super.onStop();
+}

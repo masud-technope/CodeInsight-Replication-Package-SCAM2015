@@ -1,0 +1,6 @@
+public List<ProductDTO> GetProducts(int categoryID)
+{
+    return (from p in db.Products
+            where p.CategoryID = = categoryID
+                                   select new ProductDTO { Name = p.Name }).ToList();
+}

@@ -1,0 +1,10 @@
+import java.io.Serializable;
+public abstract class Base implements Serializable {
+    private int x = 0;
+    private int y = 0;
+    private static final long serialVersionUID = 1L;
+    public String toString()
+    {
+        return ""Base X: "" + x + "", Base Y: "" + y;
+    }
+}

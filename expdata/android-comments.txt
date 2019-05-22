@@ -1,0 +1,325 @@
+CommentID	Class	PostID	Score	 Comment Text
+=============== ======  ======  =====    =============================================================================
+
+10850063	C3	3035521	13	 This can be made even simpler be using one line to save: `int index = mList.getFirstVisiblePosition();` and only one line to restore: `mList.setSelectionFromTop(index, 0);`. Great answer though (+1)! I have been looking for an elegant solution to this problem.
+
+33692616	C3	5651242	16	 Insted of `View v1 = mCurrentUrlMask.getRootView();` I have used `View v1 = getWindow().getDecorView().getRootView();` and it works for me.
+
+8328900	C5	5535672	200	 where is the donate button? Thanks man!
+
+4814182	C5	2746708	9	 Thanks! I wasted hours on this one. I think this behaviour is really counter-intuitive.
+
+12724269	C1	1016941	8	 getWidth() or getSize()? What would I use if I need my app to run on API <13 as well as API >13?
+
+20370152	C3	3414749	44	 Instead of managedQuery(.........) (deprecated) you can use getContentResolver().query(.....) with the same parameters. Nice work
+
+21739571	C2	7979823	15	 The advantage of using a DialogFragment is that all the life cycle of the dialog will be handled for you. You will never get the error 'dialog has leaked...' again. Go to DialogFragment and forget Dialogs.
+
+11919416	C3	3197456	19	 One small addition to the answer: as you do the mReceiver.setReceiver(null); in the onPause method, you should do the mReceiver.setReceiver(this); in the onResume method. Else you might not receive the events if your activity is resumed without being re-created
+
+41623398	C7	26491690	19	 For bonus points, size the action bar using increments, e.g. `@dimen/action_bar_size_x2`, and use 112dp on phones, 128dp on tablets
+
+38767478	C1	8483078	6	 @adamp If this is not good please add your answer with the best solution you can think of
+
+15185566	C5	11493752	11	 Awesome job on the research! Sad that it was necessary, but awesome nonetheless.
+
+23514475	C3	3008684	18	 A nice solution, but instead of using a registering the Broadcast receiver as described in the code above, you should use a LocalBroadcastManager.getInstance(this).registerReceiver(...) and LocalBroadcastManager.getInstance(this).unregisterReceiver(..). Otherwiser your application can receive intents from any other application (security concern)
+
+18657672	C1	1016941	164	 I don't see why you want to use `try/catch` for such a check? Why not simply use `if (android.os.Build.VERSION.SDK_INT >= 13)` without any thrown exception at all? I think of `try/catch` in a normal app-flow as bad practice.
+
+1987168	C3	2051953	13	 "The really nice way to do it involves a little more code, which will make sure the user is cleanly prompted to install Barcode Scanner if necessary. That's the other link he referred to. Copy the class at http://code.google.com/p/zxing/source/browse/trunk/android-integration/src/com/google/zxing/integration/android/IntentIntegrator.java and use that. Again no other code needed. If you want you can go all the way and embed the scanning code, but without a hard reason to do it, it's only harder for you."
+
+18170080	C1	7979823	6	 Why We should be using DialogFragment instead of plain Dialogs ?????
+
+25429673	C6	15656428	7	 You have got to be kidding me. Glad you found posted this, but good grief.
+
+13793470	C4	2175688	18	 The profile method is badly flawed (in my opinion). An app that wants/needs my e-mail is not a big deal compared to an app that wants to read all my contacts, but you've made it so that they both require the same permissions. So as a user, I can't tell the difference between an app that is going to read my e-mail, and an app that is going to read my 500+ contacts. This is a very real, practical problem as the number of apps that abuse your contacts is growing!
+
+13426013	C5	10407371	57	 fantastic explanation, Thank you dear Nishant.
+
+26355588	C4	9245510	15	 Being FORCED to create a no-argument constructor for fragments is potentially the single biggest gotcha in all of programming, anywhere. It forces a complete paradigm shift in object creation and initialization. If you're new to Android and have stumbled on this thread, please read the answer above over and over and over again.
+
+16687085	C4	3197456	6	 Don't the docs say that you don't have to call stopSelf, since IntentService does that for you?
+
+13999187	C3	4239019	46	 To be safe I would `return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();`
+
+16206489	C3	2700683	9	 I removed <item name="android:windowIsFloating">true</item> to have a fullscreen & transparent activity
+
+7867648	C2	2197841	11	 KIRAN: You'll need to look into how Intents work to understand this. It'll basically open an email application with the recipient, subject, and body already filled out. It's up to the email app to do the sending.
+
+18650782	C7	11579339	26	 **Note:** You *really* **should** put the Javadoc and source JARs into a subdirectory, e.g. "./libs/docs", otherwise these JARs will be bundled into your APK! Also, you won't be able to include Javadoc for multiple libraries, as building the APK will fail when it finds duplicate HTML files.
+
+6213963	C1	559781	11	 Don't you miss a return when drawableMap contains the image ... without starting the fetching-thread?
+
+12370566	C1	4819665	6	 I'm targeting API Level 7 with the compatability APIs. Is there a way for me to animate Fragments?
+
+24704793	C1	15931345	8	 if we already have the contact information is it possible to add the contact information and send message without having to touch on the contact to select and click ok to send ??
+
+10294027	C2	456918	52	 Note that [the Android Dev Guide](http://developer.android.com/guide/topics/manifest/activity-element.html#config) cautions against using this: **Note: Using (`android:configChanges`) should be avoided and used only as a last-resort. Please read Handling Runtime Changes for more information about how to properly handle a restart due to a configuration change.** In lieu, to persist data across rotation events, they seem to prefer using the `onSaveInstanceState Bundle`; or as @Jon-O [mentions](http://stackoverflow.com/a/7509094/260559), `onRetainNonConfigurationInstance`.
+
+8643680	C2	1967886	13	 The reason the popup is completely transparent is answered in the javadoc for PopupWindow: `The popup does not provide any background. This should be handled by the content view.`. Thus your popup view layout root should specify an android:background="" attribute.
+
+20667115	C4	6271637	79	 I'm running into the same issue, and even though I appreciate your response, this is not clean code from a software engineering point of view. This code results in the activity being tightly coupled with the fragment. You should be able to re-use the same fragment in multiple activities without the activities knowing the implementation details of the fragments.
+
+5171034	C5	2997760	8	 Thank you!! This should be the correct answer! :) I adjusted this for a little more flexibility in this post: http://stackoverflow.com/questions/4677269/how-to-stretch-three-images-across-the-screen-preserving-aspect-ratio There I use a ImageView so one can set the drawable in the XML or use it like normal ImageView in code to set the image. Works great!
+
+12500388	C6	456918	11	 I think you should add [this update on 3.2](http://stackoverflow.com/a/9550231/503900) to your answer, it's quite important (just faced that problem) and it might get overlooked.
+
+26977074	C6	4365637	13	 please update your answer and tell that it doesn't work for soft keyboard. I wasted my half day trying your code. And then saw these comments.
+
+22561562	C7	11579339	9	 Apparently this doesn't work if you are only going to link the Javadoc and not the source code, I had to extract the Javadoc jar with 7zip to a folder in My Documents, then have the properties file point to the folder with the Javadoc index.html directly like so doc=C:\\Users\\johny\\workspacenewfb\\robotium-solo-4.0-javadoc
+
+2659476	C2	2644266	12	 Well, according to the official documentation, "A dialog made with the base Dialog class must have a title. If you don't call setTitle(), then the space used for the title remains empty, but still visible. If you don't want a title at all, then you should create your custom dialog using the AlertDialog class." I haven't personally experimented with it, but that would suggest that even using a custom dialog layout or themes, it's impossible to remove the title space.
+
+6449064	C3	151940	303	 CAREFUL: you need to call super.onSaveInstanceState(savedInstanceState) before adding your values to the Bundle, or they will get wiped out on that call (Droid X Android 2.2).
+
+9553726	C3	2418314	24	 **I RETRACT MY COMMENT ABOVE** I found out that if you can't get the focus right, take a look at your XML! If you see the tag *<requestFocus></requestFocus>* in there - remove it. It seems like the tag will give focus to the EditText, and then your listener will not be fired as the EditText already has focus.
+
+30262432	C4	3414749	10	 In the newest Android version (KitKat) this gives an error: the path String is null.
+
+23984566	C3	673014	19	 Don't forget to close the FileOutputStream, my app just crashed because of that.
+
+13673621	C3	1016941	42	 "try { display.getSize(size); width = size.x; height = size.y; } catch (NoSuchMethodError e) { width = display.getWidth(); height = display.getHeight(); }"
+
+13641803	C4	10025904	36	 Yes, fortunately, this approach does not work on Android 4.0.3.
+
+15467837	C7	11579339	6	 Ahhh, it was the closing and reopening of the Eclipse project which was required for me. (I had refreshed and cleaned several times with no luck before that.)
+
+11305751	C6	2997760	17	 I can't believe how difficult it is to do things on Android that are trivially easy in iOS and Windows Phone.
+
+8267229	C2	4239019	6	 It it worth to take a look at [connectiontimeout](http://stackoverflow.com/questions/693997/how-to-set-httpresponse-timeout-for-android-in-java/1565243#1565243) if somebody (unnecessarily) try call this function before making http call! :-)
+
+30262927	C4	2636538	15	 Getting a single picture doesn't seem to be working on the newest Android version 4.4 (KitKat) anymore. The _data column from the query returns a null value.
+
+10494395	C6	5535672	108	 In the spirit of Android, it's all yours! And hopefully when you build something that may be useful, you are able to share that :)
+
+29193351	C4	2175688	8	 I agree with @Tom on this. Asking permission for the data of the all contacts on the phone for just the First and Last name of the user is ridiculous.
+
+6045289	C1	673014	9	 I have also compressed the image but to 100 percent and when I am getting my image in canvas it is very small. any reason?
+
+13857602	C5	9428660	14	 +1, an amazingly informative answer.
+
+1328610	C5	708317	65	 Thank you Soonil -- these kinds of answers are the reason why I love Stack Overflow so much. GREAT JOB!
+
+7340843	C6	6271637	37	 That's what I'm doing now essentially but it is a lot messier when you have multiple fragments that each need to receive click events. I'm just aggravated with fragments in general because paradigms have dissolved around them.
+
+30581220	C4	3414749	11	 as Christopher points out - this is not supported in 4.4+ See this question for more info: http://stackoverflow.com/questions/20067508/get-real-path-from-uri-android-kitkat-new-storage-access-framework/20402190?noredirect=1#comment30507493_20402190
+
+35022552	C4	708317	7	 Let me repeat one more time, you should not be using Application for globals. It is of no use, gives no benefits over singletons, and can be actively harmful, such as harming the performance of launching your process. At the time Application is being created, you have no idea what your process is being created for. By lazily initializing singletons as needed, you only need to do work that is necessary. For example, if your process is being launched to handle a broadcast about some background event, there is no reason to initialize whatever global state is needed by your UI.
+
+9538121	C6	2700683	7	 I used `<item name="android:windowBackground">@android:color/transparent</item>`
+
+29490140	C2	19451842	27	 Having just one Activity can be a daunting task for any fairly complex app. Using Activities gives you a lot of free things from the system - so it is a valid point how to use multiple Activities. I can't imagine one Activity handling communication between any number of fragment combinations - it's just not gonna work.
+
+10845845	C7	2700683	29	 As @Emilio mentioned this will behave like a dialog, mainly because of `android:windowIsFloating` set to true. Remove this property to behave like a normal activity (in this case it will match `android:style/Theme.Translucent.NoTitleBar`)
+
+5215415	C6	559781	24	 Google Shelves project is an excellent example look how they did http://code.google.com/p/shelves/
+
+9933218	C2	4153842	50	 Note that the if you use the XML onclick, you have to put the onclick method (`myFancyMethod()`) in the current Activity. This is important if you are using fragments, since the programmatic way of setting onclick listeners will probably have the method handling clicks in a fragment's onCreateView()... where it would **not** be found if referred to from XML.
+
+24928547	C2	7992472	10	 If you want this to work you must call `fragment.getView().setFocusableInTouchMode(true);`.
+
+5796720	C2	5161143	78	 If you only want to use the fragment as the top level content view of the activity, then you can use `ft.add(android.R.id.content, newFragment)`. It's only necessary to create a custom layout and setting its id if the fragment's container is not the activity's content view.
+
+3550625	C2	3359003	10	 To access in the background, you would either need to put appropriate synchronization around mActivity *and* deal with running into times when it is null, or have the background thread just take the Context.getApplicationContext() which is a single global instance for the app. The application context is restricted in what you can do (no UI like Dialog for example) and requires some care (registered receivers and service bindings will be left forever if you don't clean them up), but is generally appropriate for code that isn't tied to a particular component's context.
+
+5215402	C3	559781	82	 I think you should use SoftReferences so that your program will never cause OutOfMemoryException. As GC can clear softreferences when heap size is increasing... you can manage your own generation like after some seconds you can put your images to that list and before loading you should check that if image exists then don't download it again rather collect it from that list and also putting it back to your softref list and after sometime you can purge your hardlist :)
+
+23918183	C7	16620500	6	 @Hardik Nadiyapara, I had the same problem as you after following these instructions. After deleting gradle.jar from \AndroidStudio\lib (the one you pasted in step 3) it works.
+
+12752853	C6	9021487	13	 I've applied the changes Jake outlined above and compiled a new support library to use until Google releases his fix. http://ara.sh/android/android-support-v4.jar
+
+34457813	C7	22127027	21	 "After lots of mucking around I have found recent versions of android studio produce projects with two gradle files - one inside at app/build.gradle and one at /build.gradel - the one in the root directory is where you can add configuration options common to all sub-projects/modules. You need to put: allprojects { repositories { maven { url ""http://dl.bintray.com/populov/maven"" } mavenCentral() } } in the top level build.gradle for it to work"
+
+11259197	C5	2655740	7	 This also works for viewpager within a scrollview.
+
+18646478	C1	673014	14	 Does one *have* to recompress? I just want to save the original image.
+
+11219178	C3	2549222	12	 "For bonus points, provide an initial capacity to avoid reallocations as the StringBuilder fills up: `StringBuilder total = new StringBuilder(inputStream.available());`"
+
+32405715	C4	4239019	6	 This does not check if the phone is connected to the internet. Only that a network connection has been made.
+
+12609816	C3	2508138	11	 Instead of the cursor you should get the image in this way : Bitmap b = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+
+9246143	C4	4887323	31	 onKeyListener doesn't work for soft keyboards
+
+1752048	C4	938657	92	 "Thank you for this code! It was very helpful. However, I ran into one very very frustrating catch while trying to get gestures working. In my SimpleOnGestureListener, I have to override onDown for any of my gestures to register. It can just return true but i has to be defined. P.S: I don't know if its my api revision or my hardware, but i'm using 1.5 on a HTC Droid Eris."
+
+21379652	C4	5533943	15	 yeah, it won't work on 4.2.x= because it now requires a WRITE_SECURE_SETTINGS permission that is only available to system apps. Thanks Google - slowly alienating us little guys.
+
+8199077	C6	5769405	13	 iScroll took care of it https://github.com/cubiq/iscroll/blob/master/examples/form-fields/index.html
+
+10360925	C2	3506039	53	 for gingerbread or greater its actually advised to use HttpURLConnection over the apache library, see http://android-developers.blogspot.com/2011/09/androids-http-clients.html . Its less taxing on the battery and has better performance
+
+5592175	C1	1726352	6	 This gives me `"Error: No resource found that matches the given name (at 'color' with value '@color/yellow1')"` Are these references to built in colors? seems I need a res/values/color.xml to make this work
+
+23707853	C1	1016941	7	 what if you want to get the screen size excluding the navigation bar and/or notification bar
+
+15072805	C6	5535672	7	 Did you try the latest edited version. I made a small change for Jelly Bean about a week ago. This should probably be up on github.
+
+5658480	C3	708317	9	 Soonil, your answer is right, but could you notice that we should add <application android:name=".MyApp" ... /> into Android Manifest file?
+
+22134391	C7	14871487	15	 Please make sure that you use the **HTTPS** version of the site. Do not use the built-in `Android Developer Tools Update Site` from eclipse (which uses HTTP). Otherwise, it will result to an error mentioned [here](http://stackoverflow.com/questions/9544071/an-error-occurred-while-collecting-items-to-be-installed-access-is-denied) `(An error occurred while collecting items to be installed session context)`
+
+10747399	C4	3934409	17	 This code does not work properly. Some "0" characters becomes missing in the generated string. I don't know why, but that's the case.
+
+15547676	C2	4737265	6	 If you try this using the **actual** root view (`android.R.id.content`) you will be able to more confidently say that the `System` rather than your application is the entity changing it's height. Would be much safer for the Android team to give us a break and let us know at least basic things about the SoftKeyboard input.
+
+21181681	C4	7636810	16	 Do keep in mind that using a no-op `TrustManager` and the `ALLOW_ALL_HOSTNAME_VERIFIER` is pretty questionable from a security perspective. If the goal is to connect to a test environment, fine, but please don't put this code into production.
+
+15556049	C4	7992472	6	 I confirm that setOnKeyListener does't work for me, back button still cause go to older fragment.
+
+14531164	C2	151940	49	 Careful: the official documentation states, that you should save important information within the onPause-Method because the onsaveinstance-method is not part of the android lifecycle. http://developer.android.com/reference/android/app/Activity.html
+
+13580414	C7	2746708	7	 Maybe it's just me, but why would you ever do this with an EditText?
+
+23379499	C5	15656428	54	 Wow. That works. I was going to give up programming.
+
+35023082	C4	708317	9	 Also, let's be really clear here -- all of your arguments against singletons are perfectly valid, when we are talking about situations where you are actually choosing between a singleton and another approach that isn't a global; singletons are globals, with all the caveats about globals that apply. However, *Application is also a singleton*. You aren't escaping those problems by switching to subclassing Application, an Application is exactly the same as a singleton (but worse), it is just letting you to trick yourself that you are doing something more clean. But you aren't.
+
+19575141	C4	4737265	6	 Beware that `heightDiff` will always include the height of the action bar. In the new answer that has been ignored by testing if that height is greater than some constant, but 100 pixels is not sufficient for xxhdpi devices such as the Nexus 4. Consider converting that value to DPs if you really want to use this hacky work-around.
+
+3022763	C7	2570050	6	 Hi, thanks for your answer. But it seems that I cannot share the same widget provider. (if I do, only first in manifest is shown). So, basically, multiple widget providers would be the answer for me. Is anyone working with one widget provider?
+
+15275453	C2	11408340	15	 If you want to use a nested class, it has to be static. Otherwise, WeakReference doesn't change anything. Inner (nested but not static) class always holds strong reference to outer class. There is no need for any static variables though.
+
+27935264	C6	2549222	13	 It's amazing that Android doesn't have a built-in stream-to-string conversion. Having every code snippet on the web and app on the planet re-implement a `readline` loop is ridiculous. That pattern should have died with pea green in the 70s.
+
+17412014	C5	9245510	11	 Thank you - the getArguments() was missing from anybody else's explanation - really helped.
+
+27963626	C2	4153842	7	 Interesting thing is that doing it in code does allow one to shield method access by making the method private, whereas doing it the xml way leads to exposure of the method.
+
+2548499	C6	1683195	9	 I love you for this!
+
+3482548	C6	456918	134	 Here's hoping we see an onRotate() method in the future. Having to even worry about things like this is—frankly—frustrating.
+
+15576631	C7	11736739	20	 I know that it is possible but I don't want to use LinearyLayout because of bad view recycling. This solution will not work well with many imageviews.
+
+9376244	C5	2318356	121	 +1 for intergalactic portability!
+
+16229685	C4	3506039	9	 As of Honeycomb (SDK 11) the asynchronous approach is the way to go. A [NetworkOnMainThreadException](http://developer.android.com/reference/android/os/NetworkOnMainThreadException.html) gets thrown when you try to run an HTTP request from the main thread.
+
+8062251	C1	2466662	18	 And why isn't that in the default proguard file?
+
+5927564	C6	5255360	7	 ContentResolver.setSyncAutomatically(account, AUTHORITY, true);
+
+3956000	C1	1737042	7	 Is there any straightforward way to filter ListView in "contains" instead of "starts with" fashion like this solution does?
+
+5758930	C6	938657	7	 I had to implement onDown as well. Really nice of Cdsboy for pointing this out!
+
+13637180	C4	5301093	54	 Beware! getItemViewType() must return an int between 0 and getViewTypeCount() - 1.
+
+9777160	C4	7992472	40	 Handling OnKey from View does not work
+
+29549202	C4	15656428	7	 This bug is being tracked in the Android Open Source issue tracker: https://code.google.com/p/android/issues/detail?id=42601
+
+12210197	C4	2418314	10	 How do you not do this if the device has a hardware keyboard? Seems like this is annoying for those users.
+
+22441602	C2	15656428	14	 If you look at the implementation of Fragment, you'll see that when moving to the detached state, it'll reset its internal state. However, it doesn't reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.
+
+12135038	C5	5220954	14	 this is the correct answer. it's a shame that this class isn't included in the Android SDK.
+
+8646238	C4	4365637	93	 configurationChange does not work for SOFT keyboards.
+
+24188393	C1	559781	6	 haven't any one heard about `LRU Cache` http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html
+
+8992820	C3	2655740	17	 "Good stuff, very useful for any scrollable view nesting. Minor points on the code, though: You can actually simplify the entire onIntercept method to just this: `return super.onInterceptTouchEvent(ev) && mGestureDetector.onTouchEvent(ev);`. Also, the try/catch in the onScroll is really unnecessary (exactly what exception can be thrown there?); it'd suffice to replace the entire method with `return (Math.abs(distanceY) > Math.abs(distanceX))`."
+
+5690391	C7	4961467	17	 Yes, create a nested LinearLayout inside your RelativeLayout, where you want to use percentages.
+
+12196442	C1	3882736	28	 what is "a"? like that activity would that be?
+
+18529530	C4	5533943	11	 This is no longer possible starting from Android 4.2 and above.
+
+10769620	C4	456918	13	 That is a bad solution, because it only reacts to _currently known_ configuration changes. With newer Android versions, other configuration changes may occur which this code will not catch (because it must list all config changes in the manifest). The solution of saving the state with `onRetainNonConfigurationChanges` is more fault tolerant and straight forward.
+
+15481641	C2	11318942	10	 View objects are not retained, they are always destroyed on configuration changes.
+
+15397716	C2	7341546	11	 Override `setProgress` to call it from outside the class.`@Override public synchronized void setProgress(int progress){ super.setProgress(progress); onSizeChanged(getWidth(), getHeight(), 0, 0); }`
+
+6797271	C3	2033124	7	 Working for me!!! do not forget to add to your app manifest the uses-permission INTERNET
+
+8137369	C7	1683195	20	 It doesn't work well with selection-highlighting though: When top or bottom item is selected, it's colored background is rectangular and drawn on top of the round-cornered background.
+
+3769155	C7	2570050	21	 Yep, just followed above instructions and found it only works if i specify different widget provider classes. Good anyway, thanks everyone! :)
+
+7794997	C1	5114361	24	 Is there any downside to this method? This seems like cheating. (A hack?)
+
+34394877	C6	15656428	14	 So after 1 year, this bug is still not fixed? I got the same error even the latest API and SDK updates...
+
+5496820	C4	4819665	35	 When i tried this it show *RuntimeException: Unknown animator name: translate*.
+
+19249035	C5	9428660	18	 +1 just for the elephantine bath in the Android jacuzzi :P
+
+3428303	C7	1726352	23	 That works well for background color - can you set the text color in the same way?
+
+9100269	C2	1726352	7	 to make this work, put custom_button.xml in your res/"drawable" folder - and create a file res/values/colors.xml with these contents: http://stackoverflow.com/questions/3738886/android-button-with-different-background-colors/3740351#3740351 - change the color names in either file to make it work
+
+1956153	C4	456918	11	 I dont think the second approach works. I tried it; one Activity with a EditText. I wrote some text there, change orientation and the text was gone/reset.
+
+14187680	C3	10852046	22	 Okay, figured out the problem - you need to use FragmentStatePagerAdapter rather than FragmentPagerAdapter. FragmentPagerAdapter never removes fragments from the FragmentManager, it only detaches and attaches them. Check the docs for more info - in general, you only want to use FragmentPagerAdapter for fragments that are permanent. I've edited my example with the correction.
+
+21617743	C2	6883831	11	 if it doesn't work for you, try to override the dispatchTouchEvent method instead (same implementation, just change the super call at the end). thanks.
+
+7049524	C7	1726352	7	 "@HarryWood you have to define those colors in your res/values/colors.xml. Alternatively, substitute them by ""#ff0000"", ""#00ff00"", for testing purposes @cfarm54 That file is to be put in the res/drawable/custom_button.xml folder @emmby Thanks for the cod"
+
+13413699	C5	3506039	7	 responseString = out.toString() needs to be before the out.close() call. Actually, you should probably have the out.close() in a finally block. But overall, very helpful answer (+1), thanks!
+
+23899350	C7	16620500	14	 after completion of step provided by you, i create new project and it throws an error "org.jetbrains.plugins.gradle.settings.GradleSettings cannot be cast to org.jetbrains.plugins.gradle.settings.GradleSettings"
+
+15029682	C2	2033124	24	 For those complaining/asking about how to get user's password - that's not the idea here. This is meant to be used with your (developer's) e-mail account. If you want to rely on user's e-mail account you should use the e-mail intent, which is widely discussed in other posts.
+
+4005116	C1	2033124	23	 Your code seems to use hard coded username and password. Is this currently a security risk (meaning, have the apk's that get uploaded to the market been decompiled)?
+
+3665564	C2	3506039	8	 Here is an article from the official android developer blog on AsyncTask: http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html
+
+9044735	C3	3145655	24	 "This worked great for me! However, the activity I used this for me checks location on resume. If the user backs out of the activity before the location is returned the application would crash. I fixed this by adding this method to your MyLocation class.public void cancelTimer() { timer1.cancel(); lm.removeUpdates(locationListenerGps); lm.removeUpdates(locationListenerNetwork); } I call this onPause() and that fixed the crash."
+
+11491719	C2	1016941	10	 the use of getWidth and getHeight has been deprecated - you're supposed to use getSize instead: http://developer.android.com/reference/android/view/Display.html#getSize(android.graphics.Point)
+
+13307210	C4	10025904	6	 IIRC this way of overriding the home button thankfully no longer works as of Android 4.0
+
+5897481	C4	3410200	24	 Didn't work in onCreate
+
+2944805	C1	2885744	13	 hmm how about if i do not have QuickOffice installed in my Android?
+
+36774389	C7	22127027	30	 "attention now the dependency is **compile 'com.viewpagerindicator:library:2.4.1'** [reference:]http://mvnrepository.com/artifact/com.viewpagerindicator/library/2.4.1"
+
+4988840	C2	3008684	24	 @Christopher, each activity registers for the broadcast when it gets created. When it goes to the background (i.e., a new activity comes to the top of the stack), its onStop() will get called, but it can still receive broadcasts. You just need to make sur
+
+29085363	C4	16208548	19	 "this view is great but it distort not-square images, I fix that here: https://gist.github.com/melanke/7158342"
+
+11307822	C3	4737265	8	 Seems to be doing the trick. Also, if you don't know the root view's ID, here's how you can get the view: `((ViewGroup) findViewById(android.R.id.content)).getChildAt(0)`
+
+23311539	C1	5651242	17	 Hi, Can you describe what is mCurrentUrlMask? I have tried this code but it is always giving me NullPointerException at Bitmap.createBitmap(v1.getDrawingCache()), Can anybody tell what I am doing wrong.? Any help is appreciated. Thanks.
+
+14884309	C6	3145655	16	 @TRonZ No problem, please use it in any purpose.
+
+7711542	C7	4961467	13	 The answer given above by LadaRaider works for me only when I set the width to 0px. android:layout_width="0px"
+
+5345983	C1	1343796	9	 What if there are two buttons on one screen that you would like to do this to? If you setTouchDelegate again then it erases the previous touch delegate.
+
+3499582	C2	3359003	11	 The onDestroy() method sets mActivity to null. It doesn't matter who holds a reference to the activity before that, because it is still running. And the activity's window will always be valid until onDestroy() is called. By setting to null there, the async task will know that the activity is no longer valid. (And when a config changes, the previous activity's onDestroy() is called and the next one's onCreate() run without any messages on the main loop processed between them so the AsyncTask will never see an inconsistent state.)
+
+12429936	C1	2318356	6	 "Is this line of code `mAccel = mAccel * 0.9f + delta; // perform low-cut filter` supposed to be `mAccel = mAccel * 0.9f + delta * 0.1f; // perform low-cut filter`?"
+
+9071833	C1	2033124	8	 is there anyway to get an email sent without putting the password into the code? I think users would be startled if i would ask them for their email pw...
+
+3962769	C2	1737042	12	 Viktor - If the words you are interested in are separated by spaces, then it will do this automatically. Otherwise, not really. Probably the easiest way would be to subclass the Adapter by extending it, and override the getFilter method to return a Filter object that you define. See http://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/ArrayAdapter.java#L449 to understand how the default ArrayFilter works - it would be simple to copy 95% of this code and change lines 479 and 486
+
+6390710	C7	2746708	38	 Holy cow - I would never have found that without your answer.
+
+5690205	C7	4961467	98	 this makes sense for using LinearLayout however he wanted a RelativeLayout. Is there any way to do this as I need to use RelativeLayout for a List item
+
+16845417	C3	2318356	6	 The compiler suggests to use: `android.util.FloatMath.sqrt(x*x + y*y + z*z);` instead to avoid a conversion
+
+6167489	C3	5255360	16	 You can request a sync even though the global sync settings are turned off. Just add a `ContentResolver.SYNC_EXTRAS_MANUAL` set to true to the extras Bundle and you will force the sync :)
+
+3807693	C2	3035521	45	 So ListView.getFirstVisiblePosition() returns the top visible list item. But this item may be partially scrolled out of view, and if you want to restore the exact scroll position of the list you need to get this offset. So ListView.getChildAt(0) returns the View for the top list item, and then View.getTop() returns its relative offset from the top of the ListView. Then, to restore the ListView's scroll position, we call ListView.setSelectionFromTop() with the index of the item we want and an offset to position its top edge from the top of the ListView. All clear?
+
+16809452	C7	11318942	43	 As far as I can tell, if you have `setRetainInstance(true)`, the `Fragment` java object, and all its contents are *not* destroyed on rotation, but the view *is* recreated. That is `onCreatedView()` is called again. It's basically the way it should have worked with `Activities` since Android 1.0. I don't think it is "lazy" to use it, or using it isn't "proper". In fact I can't see why it isn't the default, or why you would ever want it off.
+
+17604685	C7	11318942	11	 I find your explanation for "Why doesn't it work with fragments on the back stack?" difficult to understand. But maybe I'm dumb :(
+
+5797545	C2	5161143	18	 Instead of hard coding the id, you can [define it in XML](http://developer.android.com/guide/topics/resources/more-resources.html#Id) and reference it as normal (R.id.myid).
+

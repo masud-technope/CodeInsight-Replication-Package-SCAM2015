@@ -1,0 +1,18 @@
+/** * @param context The context the dialog is to run in. * @param callBack How the parent is notified that the date is set. * @param year The initial year of the dialog. * @param monthOfYear The initial month of the dialog. * @param dayOfMonth The initial day of the dialog. */
+public DatePickerDialog(Context context,
+                        OnDateSetListener callBack,
+                        int year,
+                        int monthOfYear,
+                        int dayOfMonth) {
+    this(context, 0, callBack, year, monthOfYear, dayOfMonth);
+}     /** * @param context The context the dialog is to run in. * @param theme the theme to apply to this dialog * @param callBack How the parent is notified that the date is set. * @param year The initial year of the dialog. * @param monthOfYear The initial month of the dialog. * @param dayOfMonth The initial day of the dialog. */
+public DatePickerDialog(Context context,
+                        int theme,
+                        OnDateSetListener callBack,
+                        int year,
+                        int monthOfYear,
+                        int dayOfMonth) {
+    super(context, theme);
+    mCallBack = callBack;
+    // ... rest of the constructor.
+}

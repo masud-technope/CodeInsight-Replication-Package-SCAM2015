@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Create a temporary directory in Java</h2><br />
+<div>
+D: Is there a standard and reliable way of creating a temporary directory inside a Java application? There's an entry in Sun's issue database, which has a bit of code in the comments, but I wonder if there is a standard solution to be found in one of the usual libraries (Apache Commons etc.)
+</div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #11</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="11" /> 
+   <hr /> 
+   <h4>File ID: #617438-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="617438-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public static File createTempDirectory() throws IOException {
+        final File temp;
+        temp = File.createTempFile(&quot;temp&quot;, Long.toString(System.nanoTime()));
+        if (!temp.delete()) {
+            throw new IOException(&quot;Could not delete temp file: &quot; + temp.getAbsolutePath());
+        }
+        if (!temp.mkdir()) {
+            throw new IOException(&quot;Could not create temp directory: &quot; + temp.getAbsolutePath());
+        }
+        return temp;
+    }
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>Java is known not to delete files immediately. That's true, even if you do not open it. So, a more safe way is <code>`temp.delete(); temp = new File(temp.getPath + &quot;.d&quot;&quot;); temp.mkdir(); ..., temp.delete();`. </code></li>
+    <li>This code has a race condition between <code>`delete()`</code> and <code>`mkdir()`</code>: A malicious process could create the target directory in the meantime (taking the name of the recently-created file). See [`Files.createTempDir()`](http://guava-libraries.googlecode.com/svn/tags/release08/javadoc/com/google/common/io/Files.html#createTempDir%28%29) for an alternative. </li>
+    <li>To add to Joachin Sauers' comment: e.g. on linux, inotify on /tmp will tell you the names of all created and deleted files. It is trivial for an attacker, a user on the same machine, to cause the process using this function to write to arbitrary file accessible by the victim. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

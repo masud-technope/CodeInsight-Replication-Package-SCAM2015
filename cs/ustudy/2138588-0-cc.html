@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Hash and salt passwords in C#</h2>
+ <div>
+ D: I was just going through one of DavidHayden's articles on Hashing User Passwords.
+Really I can't get what he is trying to achieve.
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #7</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="7" /> 
+   <hr /> 
+   <h4>File ID: #2138588-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="2138588-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">
+   public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
+{
+    var algorithm = new SHA256Managed();
+    var plainTextWithSaltBytes = new byte[plainText.Length + salt.Length];
+    for (var i = 0; i &lt; plainText.Length; i + +)
+    {
+        plainTextWithSaltBytes[i] = plainText[i];
+    }
+    for (var i = 0; i &lt; salt.Length; i + +)
+    {
+        plainTextWithSaltBytes[plainText.Length + i] = salt[i];
+    }
+    return algorithm.ComputeHash(plainTextWithSaltBytes);
+}
+
+public static bool CompareByteArrays(byte[] array1, byte[] array2)
+{
+    if (array1.Length ! = array2.Length)
+    {
+        return false;
+    }
+    for (int i = 0; i &lt; array1.Length; i + +)
+    {
+        if (array1[i] ! = array2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>+1 for your book pimping! ;-) </li>
+    <li>Nifty LINQ statement refactor for CompareByteArrays <code>`return array1.Length == array2.Length &amp;&amp; !array1.Where((t, i) =&gt; t != array2[i]).Any();`</code> </li>
+    <li>Technically, yes, but having a _**unique**_ salt for each user renders Rainbow Tables (generally accepted as the most efficient way to crack hashed passwords) practically useless. [This is a quick oveview](http://crackstation.net/hashing-security.htm) gives a in-depth but not overwhelming overview of how to store passwords securely, and why/how it all works. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

@@ -1,0 +1,55 @@
+class MyActivity extends Activity {
+    Worker mWorker;
+    static class Worker extends AsyncTask<URL, Integer, Long> {
+            MyActivity mActivity;
+            Worker(MyActivity activity) {
+                mActivity = activity;
+            }
+            @Override
+            protected Long doInBackground(URL... urls) {
+                int count = urls.length;
+                long totalSize = 0;
+                for (int i = 0; i < count; i + +) {
+                    totalSize + = Downloader.downloadFile(urls[i]);
+                    publishProgress((int) ((i / (float) count) * 100));
+                }
+                return totalSize;
+            }
+            @Override
+            protected void onProgressUpdate(Integer... progress) {
+                if (mActivity ! = null) {
+                    mActivity.setProgressPercent(progress[0]);
+                }
+            }
+            @Override
+            protected void onPostExecute(Long result) {
+                if (mActivity ! = null) {
+                    mActivity.showDialog(""Downloaded "" + result + "" bytes"");
+                }
+            }
+        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mWorker = (Worker)getLastNonConfigurationInstance();
+        if (mWorker ! = null) {
+            mWorker.mActivity = this;
+        }
+        ...
+    }
+    @Override
+    public Object onRetainNonConfigurationInstance() {
+        return mWorker;
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mWorker ! = null) {
+            mWorker.mActivity = null;
+        }
+    }
+    void startWork() {
+        mWorker = new Worker(this);
+        mWorker.execute(...);
+    }
+}

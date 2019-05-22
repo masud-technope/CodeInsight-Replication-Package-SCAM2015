@@ -1,0 +1,10 @@
+if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+    && Intent.hasExtra(Intent.EXTRA_STREAM)) {
+    // retrieve a collection of selected images
+    ArrayList<Parcelable> list = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+    // iterate over these images
+    for (Parcelable parcel : list) {
+        Uri uri = (Uri) parcel;
+        // handle the images one by one here
+    }
+}

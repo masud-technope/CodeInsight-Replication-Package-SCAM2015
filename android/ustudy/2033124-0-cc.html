@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Sending Email in Android using JavaMail API without using the default/built-in app</h2>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #2</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="2" /> 
+   <hr /> 
+   <h4>File ID: #2033124-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="2033124-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">
+   public class MailSenderActivity extends Activity {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.suggestions);
+        final Button send = (Button) this.findViewById(R.id.subscribe);
+        send.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+// TODO Auto-generated method stub
+                try {
+                    GMailSender sender = new GMailSender(&quot;username@gmail.com&quot;, &quot;password&quot;);
+                    sender.sendMail(&quot;This is Subject&quot;,&quot;This is Body&quot;,&quot;user@gmail.com&quot;,&quot;user@yahoo.com&quot;);
+                } catch (Exception e) {
+                    Log.e(&quot;SendMail&quot;, e.getMessage(), e);
+                }
+            }
+        });
+    }
+}
+
+public final class JSSEProvider extends Provider {
+    public JSSEProvider() {
+        super(&quot;HarmonyJSSE&quot;, 1.0, &quot;Harmony JSSE Provider&quot;);
+        AccessController.doPrivileged(new java.security.PrivilegedAction<Void>() {
+            public Void run() {
+                put(&quot;SSLContext.TLS&quot;,&quot;org.apache.harmony.xnet.provider.jsse.SSLContextImpl&quot;);
+                put(&quot;Alg.Alias.SSLContext.TLSv1&quot;, &quot;TLS&quot;);
+                put(&quot;KeyManagerFactory.X509&quot;,&quot;org.apache.harmony.xnet.provider.jsse.KeyManagerFactoryImpl&quot;);
+                put(&quot;TrustManagerFactory.X509&quot;,&quot;org.apache.harmony.xnet.provider.jsse.TrustManagerFactoryImpl&quot;);
+                return null;
+            }
+        });
+    }
+}
+
+
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>For those complaining/asking about how to get user's password - that's not the idea here. This is meant to be used with your (developer's) e-mail account. If you want to rely on user's e-mail account you should use the e-mail intent, which is widely discussed in other posts. </li>
+    <li>You have a problem in <code>GMailSender.sendMail()</code>. The problem is that no errors go outside of sendMail because you have try..catch inside it surrounding all the code. You should remove try..catch from sendMail. Otherwise it's impossible to detect errors </li>
+    <li>Considering how easy it is to reverse engineering an APK package, do you think this is a safe approach? I mean, storing a password in plain text doesn't sound too good to me... </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

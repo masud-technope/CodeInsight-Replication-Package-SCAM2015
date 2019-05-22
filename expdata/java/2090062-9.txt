@@ -1,0 +1,7 @@
+public SomeObject getSomeProperty() {
+    // If there are really no other ways, introduce lazy loading.
+    if (someProperty = = null) {
+        someProperty = loadSomeProperty();
+    }
+    return someProperty;
+}

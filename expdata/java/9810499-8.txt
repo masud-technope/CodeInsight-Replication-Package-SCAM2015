@@ -1,0 +1,4 @@
+List<HashMap<String, String>> hashMaps = new ArrayList<HashMap<String, String>>();
+List<Map<String, String>> maps = hashMaps; // Won't compile,
+// but imagine that it could
+Map<String, String> aMap = Collections.singletonMap(""foo"

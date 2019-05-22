@@ -1,0 +1,15 @@
+@Override
+public int hashCode() {
+    return Objects.hashCode(name, length, children);
+}
+@Override
+public boolean equals(final Object obj) {
+    if (obj instanceof Bean) {
+        final Bean other = (Bean) obj;
+        return Objects.equal(name, other.name)
+               && length = = other.length // special handling for primitives
+                             && Objects.equal(children, other.children);
+    } else {
+        return false;
+    }
+}

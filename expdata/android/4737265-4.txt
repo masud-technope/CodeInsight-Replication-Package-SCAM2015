@@ -1,0 +1,14 @@
+public class MyActivity extends Activity implements LinearLayoutThatDetectsSoftKeyboard.Listener {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ...
+        LinearLayoutThatDetectsSoftKeyboard mainLayout = (LinearLayoutThatDetectsSoftKeyboard)findViewById(R.id.main);
+        mainLayout.setListener(this);
+        ...
+    }
+    @Override
+    public void onSoftKeyboardShown(boolean isShowing) {
+        // do whatever you need to do here}
+        ...
+    }

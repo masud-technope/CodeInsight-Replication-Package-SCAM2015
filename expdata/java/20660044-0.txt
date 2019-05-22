@@ -1,0 +1,14 @@
+boolean[] values = new boolean[4];
+values[0] = true;
+values[1] = false;
+values[2] = false;
+values[3] = true;
+if (ArrayUtils.isEquals(values, new boolean[] {true, false, true, false})) {
+    ...
+}
+else if (ArrayUtils.isEquals(values, new boolean[] {false, false, true, false})) {
+    ...
+}
+else {
+    ...
+}

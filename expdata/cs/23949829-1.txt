@@ -1,0 +1,11 @@
+static long CalculateAverage(long x, long y, long z)
+{
+    return (x % 3 + y % 3 + z % 3 + 6) / 3 - 2
+           + x / 3 + y / 3 + z / 3;
+}
+static long CalculateAverage(params long[] arr)
+{
+    int count = arr.Length;
+    return (arr.Sum(n = > n % count) + count * (count - 1)) / count - (count - 1)
+           + arr.Sum(n = > n / count);
+}

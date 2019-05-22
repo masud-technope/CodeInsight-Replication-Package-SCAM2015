@@ -1,0 +1,11 @@
+/** Test subject. A very simple class. */
+class SomeClass implements Serializable {
+    private final static long serialVersionUID = 1; // See Nick's comment below
+    int i    = Integer.MAX_VALUE;
+    String s = ""ABCDEFGHIJKLMNOP"";
+    Double d = new Double( -1.0 );
+    public String toString() {
+        return  ""SomeClass instance says: Don't worry, ""+ ""I'm healthy. Look, my data is i = "" + i
+                + "", s = "" + s + "", d = "" + d;
+    }
+}

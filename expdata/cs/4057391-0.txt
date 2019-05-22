@@ -1,0 +1,13 @@
+//create and run a new task
+Task<DataTable> dataTask = new Task<DataTable>(SomeCrazyDatabaseOperation);
+//run some other code immediately after this task is started and running
+ShowLoaderControl();
+StartStoryboard();
+//this will actually ""pause"" the code execution until the task completes.  It doesn't lock the thread, but rather waits for the result, similar to an async callback
+// please so also note, that the task needs to be started before it can be awaited. Otherwise it will never return
+dataTask.Start();
+DataTable table = await dataTask;
+//Now we can perform operations on the Task result, as if we're executing code after the async operation completed
+listBoxControl.DataContext = table;
+StopStoryboard();
+HideLoaderControl();

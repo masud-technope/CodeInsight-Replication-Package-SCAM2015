@@ -1,0 +1,20 @@
+129395-0 4-13	https://github.com/flextry/Telerik-Academy/blob/a77d64e91c5e45072224979ca42c220cb709a187/Programming%20with%20C%23/Codes/Deep-Clone%20%28object%20serialization%29.cs
+1262619-1 13-27	https://github.com/ChrisPfeiffer/Puppy_MP_SB/blob/c67ad2d82ba66888c4831e9f47878e0b2f7cc233/SharedPCL/HelperFunctions.cs
+1510186-0 8-21	https://github.com/ArtWDrahn/CodeEval/blob/37a8ab70059560f90bda900d7485975f6739e3c8/CodeEval/Easy/FirstPrimes.cs
+7883083-2 11-21	https://github.com/StefanAniff/hb.trex/blob/b719e3923941a2910cd7c946fd30cbb854e6b889/src/Trex.WpfClient/Trex.SmartClient.Infrastructure/Extensions/TaskExtensions.cs
+415396-14 15-23	https://github.com/oliversalzburg/omniudp/blob/e4b074dba4e56a2938b6098d6e8cee8a9a984905/OmniUdp/BufferUtils.cs
+2138588-4 17-31	https://github.com/maccabee0/BlogSite/blob/ab31d38170a46c8b2e69bfdc962009e590709197/BlogSite.Services/Concrete/PasswordHasher.cs
+182924-0 189-203	https://github.com/glassnerd/ca9/blob/0ee2fcd608504d34da55996efa07a622906324ab/ConsoleApplication1/ExcelDocument.cs
+4691582-1 15-24	https://github.com/baohaojun/system-config/blob/7bc1cc637edec0897e4aa5e6722f3ff893955a6d/gcode/modules/modules/Program.cs
+10380166-0 7-19	https://github.com/richardkundl/WeeklyTrelloReport/blob/39b22b7d72dcd081a55c6a3620f7971ff12ed839/TrelloReport/TrelloReport/Helper/StringHelper.cs
+2572919-7 217-251 https://github.com/jeffrymorris/resource-pools/blob/d6ef305a111f7750fc5d1b953a22048d218c5e63/Rantdriven.Patterns.ObjectPools/Pool.cs
+2572919-25 28-45	https://github.com/tihonove/LockService/blob/225848cf1e3fe5f05d41c218569718512867f8c7/Core/Transport/Pooling/Pool.cs
+1262619-3 7-22	https://github.com/HerrPeterPaul/StudyProjectVR/blob/c508fefcab4fa9c23ae256ef5aaeaed69131bd81/assets/MyScripts/shuffleExt.cs
+299273-1 6-25	https://github.com/media-tools/shell/blob/58547c3e41625af224b9c9ca06e77d78676382ff/Shell/Shell.Common/Shell.Common/Util/ThreadingUtils.cs
+2138588-0 26-43	https://github.com/grammarware/fodder/blob/df119a37c4f167fa64a2c45c341cf2b933608c25/csharp/Nancy/src_Nancy_Diagnostics_DiagnosticsSession.cs
+937558-0 7-25	https://github.com/AydinAdn/MediaToolkit/blob/93634419d03bcad8cb8c6e4f9be2d973e6799999/MediaToolkit%20src/MediaToolkit/Util/Document.cs
+1122519-0 6-22	https://github.com/bdrupieski/RavenDbPerformanceTest/blob/c88417e10193b14d68bc0c89c233cf9fc6b6f3af/RavenDbPerformanceTest/RandomStringGenerator.cs
+2572919-19 31-49	https://github.com/adamschmidt/suro-net/blob/2a31e36e7b91483ec58de79ac3c2cb06e88bafa0/src/Suro.Net/Suro.Net/Client/ObjectPool.cs
+32336-3 12-37	https://github.com/enzosv/BloodSMS/blob/3ae634467dc2675dd6f823f3e18d0650f57e411b/Class%20Library/Blood%20SMS/Blood%20SMS/Email.cs
+5193851-1 31-53	https://github.com/haditya/mvc/blob/c3779cb9a9fe82b041b9c6eb4d794750c33b2203/MVCApplication/Controllers/HomeController.cs
+

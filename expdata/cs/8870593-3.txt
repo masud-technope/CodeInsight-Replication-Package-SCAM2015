@@ -1,0 +1,11 @@
+FCFuncStart(gMathFuncs)
+FCIntrinsic(""Sin"", COMDouble::Sin, CORINFO_INTRINSIC_Sin)
+FCIntrinsic(""Cos"", COMDouble::Cos, CORINFO_INTRINSIC_Cos)
+FCIntrinsic(""Sqrt"", COMDouble::Sqrt, CORINFO_INTRINSIC_Sqrt)
+FCIntrinsic(""Round"", COMDouble::Round, CORINFO_INTRINSIC_Round)
+FCIntrinsicSig(""Abs"", &gsig_SM_Flt_RetFlt, COMDouble::AbsFlt, CORINFO_INTRINSIC_Abs)
+FCIntrinsicSig(""Abs"", &gsig_SM_Dbl_RetDbl, COMDouble::AbsDbl, CORINFO_INTRINSIC_Abs)
+FCFuncElement(""Exp"", COMDouble::Exp)
+FCFuncElement(""Pow"", COMDouble::Pow)
+// etc..
+FCFuncEnd()

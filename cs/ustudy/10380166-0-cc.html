@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: Converting a string to byte-array without using an encoding (byte-by-byte)</h2>
+ <div>
+ D: How do I convert a string to a byte[] in .NET (C#)?
+ <br />
+ Update: Also please explain why encoding should be taken into consideration. Can't I simply get what bytes the string has been stored in? Why is there a dependency on character encodings?
+
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #1</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="1" /> 
+   <hr /> 
+   <h4>File ID: #10380166-0-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="10380166-0-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">public static byte[] GetBytes(string str)
+{
+    byte[] bytes = new byte[str.Length * sizeof(char)];
+    Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+    return bytes;
+}
+public static string GetString(byte[] bytes)
+{
+    char[] chars = new char[bytes.Length / sizeof(char)];
+    Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+    return new string(chars);
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>What's ugly about this one is, that `GetString` and `GetBytes` need to executed on a system with the same endianness to work. So you can not use this to get bytes you want to turn into a string elsewhere. So I have a hard time to come up with a situations where I'd want to use this. </li>
+    <li>Well, the way I think about it is: I'm not a judge. I do not ask for &quot;evidence&quot; from the OP to try to prove his case before I answer him (contrary to what others might try to do). He *clearly* said, &quot;Can't I simply get what bytes the string has been stored in? Why this dependency on encoding?&quot;&quot;, to which my answer is 100% accurate, more than the others on this page IMO. And IMO he's understood the caveats by now. Also, the fact that the answer was from 3 years ago is irrelevant. But again, if you'd rather ask for &quot;evidence&quot; first, then that's your style, and feel free to keep the downvote.. </li>
+    <li>If they can not be bothered to read the answer (or the other answers...), then I'm sorry, then there's no better way for me to communicate with them. I generally opt for answering the OP rather than trying to guess what others might do with my answer -- the OP has the right to know, and just because someone might abuse a knife doesn't mean we need to hide all knives in the world for ourselves. Though if you disagree that's fine too. </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

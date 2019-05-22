@@ -1,0 +1,17 @@
+// Outside the pool
+public enum AccessMode { FIFO, LIFO, Circular };
+private IItemStore itemStore;
+// Inside the Pool
+private IItemStore CreateItemStore(AccessMode mode, int capacity)
+{
+    switch (mode)
+    {
+    case AccessMode.FIFO:
+        return new QueueStore(capacity);
+    case AccessMode.LIFO:
+        return new StackStore(capacity);
+    default:
+        Debug.Assert(mode = = AccessMode.Circular,""Invalid AccessMode in CreateItemStore"");
+        return new CircularStore(capacity);
+    }
+}

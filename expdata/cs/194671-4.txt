@@ -1,0 +1,7 @@
+private static void Main() {
+    CanThisHappen<MyFunnyType>();
+}
+public static void CanThisHappen<T>() where T : class, new() {
+    var instance = new T(); // new() on a ref-type; should be non-null, then
+    Debug.Assert(instance ! = null, ""How did we break the CLR ?"");
+}

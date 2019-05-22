@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+  <title>Test Case: #</title> 
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script> 
+  <style type="text/css">
+code{
+	font: 1em 'Courier New', Courier, Fixed, monospace;
+    font-size : 100%;
+    color: #000;
+	background-color:#efefef;
+    /*background : #fff url(http://www.estudiowas.com.ar/images/preback.jpg) no-repeat left top;*/
+    overflow : auto;
+    text-align:left;
+    /*border : 1px solid #5581C0;*/
+	padding : 3px;
+    margin:1em 0 1em 0;
+    line-height:20px;
+    font-weight:normal!important;
+	 }
+ code, pre
+ {
+ background-color:#efefef;
+ }
+
+
+</style> 
+ </head> 
+ <body style="margin-left:200px; margin-right:0px; width:1000px"> 
+ <h2>Q: How to avoid Java Code in JSP-Files?</h2>
+ <div>
+ D: 
+
+I'm new to Java EE and I know that something like the following three lines
+<pre>
+<%= x+1 %>
+<%= request.getParameter("name") %>
+<%! counter++; %>
+</pre>
+is an oldschool way of coding and in JSP version 2 there exists a method to avoid Java code in JSP files. Can someone please tell me the alternative JSP 2 lines, and how this technique is called?
+
+ </div>
+  <form action="record.php" method="post"> 
+   <h2>Test Case #4</h2> 
+   <input type="hidden" name="tcase" id="tcase" value="4" /> 
+   <hr /> 
+   <h4>File ID: #3180202-12-cc</h4> 
+   <input type="hidden" name="fileid" id="fileid" value="3180202-12-cc" /> 
+   <hr /> 
+   <pre class="prettyprint" id="codesegment">
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    try {
+        List<Product> products = productService.list(); // Obtain all products.
+        request.setAttribute("products", products); // Store products in request scope.
+        request.getRequestDispatcher("/WEB-INF/products.jsp").forward(request, response); // Forward to JSP page to display them in a HTML table.
+    } catch (SQLException e) {
+        throw new ServletException("Retrieving products failed!", e);
+    }
+}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    User user = userService.find(username, password);
+
+    if (user != null) {
+        request.getSession().setAttribute("user", user); // Login user.
+        response.sendRedirect("home"); // Redirect to home page.
+    } else {
+        request.setAttribute("message", "Unknown username/password. Please retry."); // Store error message in request scope.
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response); // Forward to JSP page to redisplay login form with error.
+    }
+}
+     
+   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+    try
+    {
+        IAction action = ActionFactory.getAction(request);
+        String view = action.execute(request, response);
+        if (view.equals(request.getPathInfo().substring(1)))
+        {
+            request.getRequestDispatcher(&quot;/WEB-INF/&quot; + view + &quot;.jsp&quot;).forward(request, response);
+        }
+        else
+        {
+            response.sendRedirect(view);
+        }
+    }
+    catch (Exception ex)
+    {
+        LOGGER.error(ex.getMessage());
+    }
+}
+</pre> 
+   <hr /> 
+   <ol id="comments">
+    <li>+1 Great answer. But don't go dogmatic, sometime using scriptlets IS ok, but that should be the exception that proves the rule. </li>
+    <li>It was a pretty good answer, but the doGet and doPost parts are misleading. Those methods are for handling specific request (HEAD, GET and POST) methods and aren't for &quot;&quot;preprocessing&quot;&quot; or &quot;&quot;postprocessing&quot;&quot; requests! </li>
+    <li>@svachon: Scriptlets are useful for quick prototyping/testing. As far as I know, there's only one &quot;&quot;legitimate&quot;&quot; production use of a scriptlet, namely <code>`&lt;% response.getWriter().flush(); %&gt;`</code> between the `` and the `` to improve webpage parsing performance in the webbrowser. But this use is in turn completely negligible when the output buffer size at the server side is low (1~2KB). [See also this article](http://balusc.blogspot.com/2009/09/webapplication-performance-tips-and.html#FlushTheBufferEarly). </li>
+   </ol> 
+   <hr /> 
+   <strong>Comments Quality</strong> 
+   <hr /> 
+   <strong>Accurate?</strong>: 
+   <input type="radio" name="accurate" id="a5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="accurate" id="a4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="accurate" id="a3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="accurate" id="a2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="accurate" id="a1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Precise?</strong>: 
+   <input type="radio" name="precise" id="p5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="precise" id="p4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="precise" id="p3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="precise" id="p2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="precise" id="p1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Concise?</strong>: 
+   <input type="radio" name="concise" id="c5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="concise" id="c4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="concise" id="c3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="concise" id="c2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="concise" id="c1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <br /> 
+   <strong>Useful?</strong>: 
+   <input type="radio" name="useful" id="u5" value="5" /> 
+   <label for="a5">Strongly Agree</label> 
+   <input type="radio" name="useful" id="u4" value="4" /> 
+   <label for="a5">Agree</label> 
+   <input type="radio" name="useful" id="u3" value="3" /> 
+   <label for="a5">Neutral</label> 
+   <input type="radio" name="useful" id="u2" value="2" /> 
+   <label for="a5">Disagree</label> 
+   <input type="radio" name="useful" id="u1" value="1" /> 
+   <label for="a5">Strongly Disagree</label> 
+   <hr /> 
+   <input type="submit" name="submit" value="Submit Response" /> 
+  </form>   
+ </body>
+</html>

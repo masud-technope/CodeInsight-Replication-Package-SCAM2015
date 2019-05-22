@@ -1,0 +1,32 @@
+Instructions for study
+==========================
+1. Each user is expected to work with 20 testcases ( 5 Java, 10 Android and 5 C# testcases). URL of a page containing links to all testcases will
+be emailed to the user.
+2. Each testcase will contain these sections:
+	a. title of a programming task (e.g., Q: xxxxx)
+	b. description of the task with more words. (e.g., D: yyyyyyy)
+	c. testcase # and file ID (don't worry about these)
+	d. a code segment(e.g., few lines of code, a method or whole class) solving that programming problem/task.
+	e. A list of three comments discussing issues, concerns or useful tips for improvement in the code.
+	f. rating scales associated with accuracy, preciseness, conciseness and usefulness of those three comments.
+3. A user will first attempt to understand the programming problem as well as the solution code.
+4. S/he then will analyze each of those three comments, and attempt to find out if the discussed issues, concerns or tips in the comments
+are really meaningful, informative, thought-provoking and useful.
+5. When a developer starts working with other's code, s/he needs to comprehend and then further analyze the code statically 
+before actually working on it. The goal is to determine if such comments could be useful in this case.
+6. The user will then provide the ratings for each testcase using his/her best judgements. 
+[Please note that your professional opinion matters, and I am expecting your unbiased evaluation]
+7. Each testcase would take roughly 5-7 minutes (might be subjective), so the whole study is expected to finish 
+within 1.5-2.0 hours.
+8. Each user will be compensated with a good amount.
+9. Here is an example testcase, you might look at before starting the study.
+http://homepage.usask.ca/~masud.rahman/codeinsight/android/ustudy/2418314-5-cc.html
+
+Further clarification about comment quality:
+=================================================
+Accurate: if the discussed topic is correct and relevant with the code.
+Precise: if the discussed issue specific to certain item in the code, not just a general statement.
+Concise: if the comment conveys a substantial meaning using limited number of words.
+Useful: if information in the comment is meaningful for any static program analysis such as comprehension, review or reuse.
+
+[Please note that the ratings are on the three comments as a whole.]

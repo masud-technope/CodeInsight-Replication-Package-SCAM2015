@@ -1,0 +1,10 @@
+class Test
+{
+    delegate Hofstadter Hofstadter();
+    static void Main()
+    {
+        // Unfortunately I'm clearly not as smart as the real thing
+        Hofstadter douglas = () = > null;
+        douglas()()()()()()();
+    }
+}

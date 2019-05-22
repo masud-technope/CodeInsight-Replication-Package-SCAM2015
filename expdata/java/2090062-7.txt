@@ -1,0 +1,33 @@
+public class Bean {
+    private SomeObject someProperty;
+    @PostConstruct
+    public void init() {
+        // In @PostConstruct (will be invoked immediately after construction and dependency/property injection).
+        someProperty = loadSomeProperty();
+    }
+    public void preRender(ComponentSystemEvent event) {
+        // Or in some SystemEvent method (e.g. <f:event type=""preRenderView"">).
+        someProperty = loadSomeProperty();
+    }
+    public void change(ValueChangeEvent event) {
+        // Or in some FacesEvent method (e.g. <h:inputXxx valueChangeListener>).
+        someProperty = loadSomeProperty();
+    }
+    public void ajaxListener(AjaxBehaviorEvent event) {
+        // Or in some BehaviorEvent method (e.g. <f:ajax listener>).
+        someProperty = loadSomeProperty();
+    }
+    public void actionListener(ActionEvent event) {
+        // Or in some ActionEvent method (e.g. <h:commandXxx actionListener>).
+        someProperty = loadSomeProperty();
+    }
+    public String submit() {
+        // Or in Action method (e.g. <h:commandXxx action>).
+        someProperty = loadSomeProperty();
+        return ""outcome"";
+    }
+    public SomeObject getSomeProperty() {
+        // Just keep getter untouched. It isn't intented to do business logic!
+        return someProperty;
+    }
+}
