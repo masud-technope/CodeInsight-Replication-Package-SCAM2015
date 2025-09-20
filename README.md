@@ -8,6 +8,10 @@ Accepted Paper at SCAM 2015
 Recommending Insightful Comments for Source Code using Crowdsourced Knowledge
 Mohammad Masudur Rahman, Chanchal K. Roy and Iman Keivanloo
 ```
+Most Influential Paper Award (SCAM 2025)
+----------------------------------------
+![Distinguished Paper Award Nomination](https://web.cs.dal.ca/~masud/nlp2api/img/dpa-150.png) 
+
 
 **Download this paper:**  [<img src="http://web.cs.dal.ca/~masud/img/pdf.png"
      alt="PDF" heigh="16px" width="16px" />](https://arxiv.org/pdf/1807.02278)
