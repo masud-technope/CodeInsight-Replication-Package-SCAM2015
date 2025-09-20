@@ -60,4 +60,4 @@ Contact:  **Masud Rahman**  ([masud.rahman@usask.ca](mailto:masud.rahman@usask.c
 
 OR
 
-Create an issue from  [here]([https://github.com/masud-technope/CodeInsight-Replication-Package-SCAM2015/issues/new)
+Create an issue from [here](https://github.com/masud-technope/CodeInsight-Replication-Package-SCAM2015/issues/new)
