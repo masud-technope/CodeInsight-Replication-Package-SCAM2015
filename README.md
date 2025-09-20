@@ -7,11 +7,12 @@ Accepted Paper at SCAM 2015
 ```
 Recommending Insightful Comments for Source Code using Crowdsourced Knowledge
 Mohammad Masudur Rahman, Chanchal K. Roy and Iman Keivanloo
-``` 
-**Download this paper:**  [<img src="http://homepage.usask.ca/~masud.rahman/img/pdf.png"
-     alt="PDF" heigh="16px" width="16px" />](http://homepage.usask.ca/~masud.rahman/papers/masud-SCAM2015.pdf)
+```
 
-**Abstract:**  Recently, automatic code comment generation is proposed to facilitate program comprehension. Existing code comment generation techniques focus on describing the functionality of the source code. However, there are other aspects such as insights about quality or issues of the code, which are overlooked by earlier approaches. In this paper, we describe a mining approach that recommends insightful comments about the quality, deficiencies or scopes for further improvement of the source code. First, we conduct an exploratory study that analyzes crowdsourced knowledge from Stack Overflow discussions as a potential resource for source code comment recommendation. Second, based on the findings from the exploratory study, we propose a heuristic-based technique for mining insightful comments from Stack Overflow Q & A site for source code comment recommendation. Experiments with 292 Stack Overflow code segments and 733 discussion comments show that our approach has a promising recall of 85.42%. We also conducted a complementary user study which confirms the accuracy and usefulness of the recommended comments.
+**Download this paper:**  [<img src="http://web.cs.dal.ca/~masud/img/pdf.png"
+     alt="PDF" heigh="16px" width="16px" />](https://arxiv.org/pdf/1807.02278)
+
+**Abstract:**  Recently, automatic code comment generation is proposed to facilitate program comprehension. Existing code comment generation techniques focus on describing the functionality of the source code. However, there are other aspects, such as insights about quality or issues of the code, which are overlooked by earlier approaches. In this paper, we describe a mining approach that recommends insightful comments about the quality, deficiencies or scopes for further improvement of the source code. First, we conduct an exploratory study that analyzes crowdsourced knowledge from Stack Overflow discussions as a potential resource for source code comment recommendation. Second, based on the findings from the exploratory study, we propose a heuristic-based technique for mining insightful comments from the Stack Overflow Q&A site for source code comment recommendation. Experiments with 292 Stack Overflow code segments and 733 discussion comments show that our approach has a promising recall of 85.42%. We also conducted a complementary user study, which confirms the accuracy and usefulness of the recommended comments.
 
 Exploratory Study
 --------------------------------
@@ -46,8 +47,8 @@ booktitle={Proc. SCAM}, title={Recommending {I}nsightful {C}omments for {S}ource
 year={2015}, 
 pages={81-90} } 
 ```
-**Download this paper:**  [<img src="http://homepage.usask.ca/~masud.rahman/img/pdf.png"
-     alt="PDF" heigh="16px" width="16px" />](http://homepage.usask.ca/~masud.rahman/papers/masud-SCAM2015.pdf)
+**Download this paper:**  [<img src="http://web.cs.dal.ca/~masud/img/pdf.png"
+     alt="PDF" heigh="16px" width="16px" />](https://arxiv.org/pdf/1807.02278)
 
 ## Something not working as expected?
 
